@@ -1,0 +1,43 @@
+
+:root {
+    font: Roboto;
+}
+
+#watched {
+    background-color: #FFFFFF;
+    color: #B92F2C;
+    font-family: var(--font);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14.06px;
+    text-align: center;
+    width: 120px;
+    height: 42px;
+    padding: 14px 32px 14px 32px;
+    border-radius: 100px;
+    margin-right: 8px;
+}
+
+#queue {
+    font-family: var(--font);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14.06px;
+    text-align: center;
+    color: #FFFFFF;
+    background-color: #B92F2C;
+    box-shadow: 0px 0px 7px 0px #1B1B1B26;
+    width: 86px;
+    height: 42px;
+    padding: 14px 24px 14px 24px;
+    gap: 10px;
+    border-radius: 100px;
+    border-style: hidden;
+}
+
+.watched-queue-container {
+    display: flex;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
