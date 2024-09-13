@@ -1,11 +1,13 @@
 
 :root {
-    font: Roboto;
+    --font: Roboto;
+    --red-color: #B92F2C;
+    --white-color: #FFFFFF;
 }
 
-#watched {
-    background-color: #FFFFFF;
-    color: #B92F2C;
+.watched {
+    background-color: var(--red-color);
+    color: var(--white-color);
     font-family: var(--font);
     font-size: 12px;
     font-weight: 500;
@@ -16,16 +18,17 @@
     padding: 14px 32px 14px 32px;
     border-radius: 100px;
     margin-right: 8px;
+    border-style: none;
 }
 
-#queue {
+.queue {
     font-family: var(--font);
     font-size: 12px;
     font-weight: 500;
     line-height: 14.06px;
     text-align: center;
-    color: #FFFFFF;
-    background-color: #B92F2C;
+    color: var(--white-color);
+    background-color: var(--red-color);
     box-shadow: 0px 0px 7px 0px #1B1B1B26;
     width: 86px;
     height: 42px;
@@ -34,6 +37,12 @@
     border-radius: 100px;
     border-style: hidden;
 }
+
+.watched:hover, .queue:hover {
+    background-color: var(--white-color);
+    color: var(--red-color);
+}
+
 
 .watched-queue-container {
     display: flex;
