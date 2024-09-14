@@ -1,6 +1,6 @@
-/* general styling - ar trebui mutat in Styles.css */
+/* general styling - l-am mutat in Styles.css */
 
-*,
+/* *,
 *::before,
 *::after {
     box-sizing: border-box;
@@ -23,7 +23,7 @@ body {
     --black: #111111;
     --primary-font: 'Roboto', sans-serif;
 
-}
+} */
 
 /* styling specific header home */
 
@@ -44,8 +44,8 @@ body {
     /* background: linear-gradient(273.67deg, rgba(0, 0, 0, 0.49) -2.09%, rgba(0, 0, 0, 0) 99.83%); */
     background-size: cover;
     display: flex;
-    /* justify-content: flex-start; */
-    /* align-items: center; */
+    flex-direction: column;
+    justify-content: space-between;
     margin-bottom: 32px;
 }
 
@@ -79,8 +79,8 @@ body {
 }
 
 #search-form input {
-    border-width: 0;
-    /* background-color: var(--white); */
+    border: none;
+    
 }
 
 #search-form button{
@@ -96,8 +96,7 @@ body {
     gap: 8px;
     opacity: 0px;
     display: flex;
-    /* align-items: center;
-    justify-content:space-between; */
+
     
 
 }
@@ -116,13 +115,45 @@ body {
     padding: 14px 24px 14px 24px;
     /* gap: 10px; */
     margin-top: 16px;
+    cursor: pointer;
 
 
 }
+.header-nav__list a:hover,
+.header-nav__list a:focus {
+    background-color: var(--black);
+    color: var(--white);
+}
 
-/* .logo-container svg {
-    width: 21px;
-    height: 21px;
-    fill: var(--black);
-    stroke: var(--black);
-} */
+
+.logo-container {
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    gap: 16px;
+    margin-left: 32px;
+    margin-bottom: 32px;
+
+}
+.logo-text {
+    font-size: 64px;
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--white);
+    text-align: center;
+}
+
+.header_logo__icon {
+    width: 59px;
+    height: 59px;
+    fill: var(--white);
+    stroke: var(--white);
+  
+}
+
+.logo-container svg {
+    width: 59px;
+    height: 59px;
+    fill: var(--white);
+    stroke: var(--white);
+}
