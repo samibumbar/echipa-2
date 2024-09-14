@@ -2,23 +2,35 @@ const watchedBtn = document.querySelector('.watched');
 const queueBtn = document.querySelector('.queue');
 const STORAGE_KEY = 'movies';
 
-const selectedMovie = {
+
+const selectedMovie = [
+  {
   title: 'Deadpool',
   genre: 'Action',
   year: 2021,
   id: '12345',
-};
+  },
+
+  {
+  title: 'Spiderman',
+  genre: 'Action',
+  year: 2001,
+  id: 12346,
+  }
+
+]
 
 function addToLocalStorage(movie, listType) {
+  let moviesData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
+    watched: [],
+    queue: [],
+  };
 
-    // Obtinem obiectul din local storage sau initializam cu liste goale
-    let moviesData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {watched: [], queue: []};
-
-    // Adaugare film in lista specificata (watched sau queue)
+  // Verificăm dacă filmul există deja în listă
+  if (!moviesData[listType].some(storedMovie => storedMovie.id === movie.id)) {
     moviesData[listType].push(movie);
-
-    // Stocare obiect in local storage
     localStorage.setItem(STORAGE_KEY, JSON.stringify(moviesData));
+  }
 }
 
 function getMoviesList(listType) {
@@ -27,9 +39,14 @@ function getMoviesList(listType) {
 }
 
 function displayMovies(listType) {
-    const moviesList = getMoviesList(listType);
-    const moviesContainer = document.querySelector(`.${listType}-movies-container`);
-    moviesContainer.innerHTML = '';
+  const moviesList = getMoviesList(listType);
+  let moviesContainer = document.querySelector(`.${listType}-movies-container`);
+  if (!moviesContainer) {
+    console.error(`Elementul .${listType}-movies-container nu a fost găsit.`);
+    return;
+  }
+
+  moviesContainer.innerHTML = '';
 
     moviesList.forEach(movie => {
         const movieCard = document.createElement('div');
@@ -41,18 +58,30 @@ function displayMovies(listType) {
 }
 
 // Event listener pentru butonul „watched”
-watchedBtn.addEventListener('click', () => {
-  addToLocalStorage(selectedMovie, 'watched');
-//   displayMovies('wathed');
+watchedBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  showWatched();
 });
 
 // Event listener pentru butonul „queue”
-queueBtn.addEventListener('click', () => {
-  addToLocalStorage(selectedMovie, 'queue');
-//   displayMovies('queue');
+queueBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  showQueue();
 });
 
-window.onload = () => {
+function showWatched() {
+  document.querySelector('.watched-movies-container').style.display = 'block';
+  document.querySelector('.queue-movies-container').style.display = 'none';
   displayMovies('watched');
+}
+
+function showQueue() {
+  document.querySelector('.watched-movies-container').style.display = 'none';
+  document.querySelector('.queue-movies-container').style.display = 'block';
   displayMovies('queue');
-};
+}
+
+if (!localStorage.getItem(STORAGE_KEY)) {
+  addToLocalStorage(selectedMovie[1], 'watched');
+  addToLocalStorage(selectedMovie[0], 'queue');
+}
