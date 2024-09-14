@@ -3,10 +3,10 @@ const queueBtn = document.querySelector('.queue');
 const STORAGE_KEY = 'movies';
 
 const selectedMovie = {
-  title: 'Greyhound',
-  genre: 'Drama, Action',
-  year: 2020,
-  id: '12345', // ID unic pentru a identifica filmul
+  title: 'Deadpool',
+  genre: 'Action',
+  year: 2021,
+  id: '12345',
 };
 
 function addToLocalStorage(movie, listType) {
@@ -38,21 +38,18 @@ function displayMovies(listType) {
         moviesContainer.appendChild(movieCard);
         
     });
-
-    window.onload = displayMovies('watched');
-    window.onload = displayMovies('queue');
 }
 
 // Event listener pentru butonul „watched”
 watchedBtn.addEventListener('click', () => {
   addToLocalStorage(selectedMovie, 'watched');
-  displayMovies('wathed');
+//   displayMovies('wathed');
 });
 
 // Event listener pentru butonul „queue”
 queueBtn.addEventListener('click', () => {
   addToLocalStorage(selectedMovie, 'queue');
-  displayMovies('queue');
+//   displayMovies('queue');
 });
 
 window.onload = () => {
