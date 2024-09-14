@@ -1,1 +1,1 @@
-{"version":3,"file":"page-2.js","sources":[],"sourcesContent":[],"names":[],"mappings":""}
+{"version":3,"file":"page-2.js","sources":["../src/js/watched-queue.js"],"sourcesContent":["const watchedBtn = document.querySelector('.watched');\nconst queueBtn = document.querySelector('.queue');\n\nwatchedBtn.addEventListener('click', salut);\n\nfunction salut() {\n    console.log('Salut!');\n}"],"names":["watchedBtn","salut"],"mappings":"sEAAA,MAAMA,EAAa,SAAS,cAAc,UAAU,EACnC,SAAS,cAAc,QAAQ,EAEhDA,EAAW,iBAAiB,QAASC,CAAK,EAE1C,SAASA,GAAQ,CACb,QAAQ,IAAI,QAAQ,CACxB"}
