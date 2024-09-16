@@ -1,7 +1,7 @@
 .default-display-section {
     max-width: 320px;
     width: 100%;
-    margin: 20px;
+    margin: 20px auto;
 }
 
 .gallery {
@@ -40,57 +40,58 @@
     margin: 0;
 }
 
-#pagination {
-    display: inline-block;
-    vertical-align: middle;
-    border-radius: 4px;
-    background-color: #FFFFFF;
-    margin: 40px auto ;
-}
-#pagination a, #pagination i {
-    display: inline-block;
-    vertical-align: middle;
-    width: 30px;
-    height: 30px;
+.pagination-container { 
+    text-align: center; 
+} 
+  
+.pagination { 
+    padding: 16px; 
+    max-width: 374px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 374px;
+} 
+  
+.pagination a { 
+    color: #000000; 
     font-weight: 500;
-    text-align: center;
-    font-size: 12px;
-    padding-top: 7px;
-    -webkit-user-select:none;
-       -moz-user-select:none;
-        -ms-user-select:none;
-         -o-user-select:none;
-            user-select:none;
-}
-#pagination a {
-    margin: 0 2px 0 2px;
-    border-radius: 4px;
-    cursor: pointer;
-    text-shadow: 0 1px 1px #FFF;
-    background-color: #FFFFFF;
-}
-#pagination i {
-    margin: 0 3px 0 3px;
-}
-#pagination a.current {
-    border: 1px solid #B92F2C;
-    color: #FFFFFF;
+    border-radius: 2px; 
+    padding: 5px 10px; 
+    margin: 1px; 
+    text-decoration: none; 
+    font-size: 12px; 
+    transition: background-color 0.3s; 
+} 
+  
+.pagination a.active { 
     background-color: #B92F2C;
+    color: #FFFFFF;
+} 
+
+  
+.pagination .arrow { 
+    font-size: 20px; 
+    font-weight: bold; 
+    margin: 0 10px; 
+    cursor: pointer; 
+    color: #000000; 
+    background-color: #F7F7F7;
+} 
+  
+.content { 
+    padding: 20px; 
+    border-radius: 8px; 
+    margin-top: 20px; 
 }
 
-#pagination .prev-arrow,
-#pagination .next-arrow {
-    background-color: #F7F7F7;
-    font-size: 23px;
-    padding-top: 0;
-}
 
 @media screen and (min-width:768px) {
     .default-display-section {
         max-width: 768px;
         width: 100%;
         padding: 32px;
-        margin: 32px 0;
+        margin: 32px auto;
     }
     
     .galleryContainer_image {
@@ -115,16 +116,19 @@
     }
 
     #pagination {
-        margin: 60px 165px;
+        margin: 60px auto;
+        flex-wrap: nowrap;
+        max-width: 600px;
     }
 }
 
-@media screen and (min-width:1280px) {
+@media screen and (min-width:1200px) {
     .default-display-section {
         margin-top: 32px;
-        max-width: 1280px;
+        max-width: 1200px;
         width: 100%;
         padding: 30px;
+        margin: 32px auto;
     }
     
     .galleryContainer_image {
@@ -134,7 +138,7 @@
     }
     
     .galleryContainer_card {
-        max-width: 394px;
+        max-width: 364px;
         height: 634px;
         margin: 0;
     }
@@ -143,11 +147,20 @@
         flex-wrap: wrap;
         display: flex;
         gap: 16px;
-        max-width: 1216px;
+        max-width: 1200px;
         width: 100%;
     }
 
     #pagination {
-        margin: 60px 453px;
+        margin: 60px auto;
     }
 }
+
+/* .dot {
+    height: 25px;
+  width: 25px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+} */
+
