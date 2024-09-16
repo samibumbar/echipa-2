@@ -3,23 +3,24 @@ const queueBtn = document.querySelector('.queue');
 const STORAGE_KEY = 'movies';
 
 
-const selectedMovie = [
-  {
-  title: 'Deadpool',
-  genre: 'Action',
-  year: 2021,
-  id: '12345',
-  },
+// TEST FILME
+// const selectedMovie = [
+//   {
+//   title: 'Deadpool',
+//   genre: 'Action',
+//   year: 2021,
+//   id: '12345',
+//   },
 
-  {
-  title: 'Spiderman',
-  genre: 'Action',
-  year: 2001,
-  id: 12346,
-  }
+//   {
+//   title: 'Spiderman',
+//   genre: 'Action',
+//   year: 2001,
+//   id: 12346,
+//   }
+// ]
 
-]
-
+// Functie adaugare in local storage
 function addToLocalStorage(movie, listType) {
   let moviesData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
     watched: [],
@@ -57,13 +58,11 @@ function displayMovies(listType) {
     });
 }
 
-// Event listener pentru butonul „watched”
 watchedBtn.addEventListener('click', (e) => {
   e.preventDefault();
   showWatched();
 });
 
-// Event listener pentru butonul „queue”
 queueBtn.addEventListener('click', (e) => {
   e.preventDefault();
   showQueue();
@@ -81,7 +80,9 @@ function showQueue() {
   displayMovies('queue');
 }
 
-if (!localStorage.getItem(STORAGE_KEY)) {
-  addToLocalStorage(selectedMovie[1], 'watched');
-  addToLocalStorage(selectedMovie[0], 'queue');
-}
+
+// TEST AFISARE FILME
+// if (!localStorage.getItem(STORAGE_KEY)) {
+//   addToLocalStorage(selectedMovie[1], 'watched');
+//   addToLocalStorage(selectedMovie[0], 'queue');
+// }
