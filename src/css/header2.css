@@ -149,9 +149,3 @@
 
 }
 
-.logo-container svg {
-    width: 59px;
-    height: 59px;
-    fill: var(--white);
-    stroke: var(--white);
-}
