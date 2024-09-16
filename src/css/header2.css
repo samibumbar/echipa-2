@@ -8,10 +8,9 @@
 .header-container {
     max-width: 1216px;
     height: 316px;
-    /* gap: 0px; */
     border-radius: 15px 0px 0px 0px;
     opacity: 0px;
-    background-image: url('../images/descktop-background-with-red-lines\ 2x\ \(1\).jpg(1\).jpg');
+    background-image: url('../images/descktop-background-with-red-lines\ 1x.jpg');
     /* background: linear-gradient(273.67deg, rgba(0, 0, 0, 0.49) -2.09%, rgba(0, 0, 0, 0) 99.83%); */
     background-size: cover;
     display: flex;
@@ -19,6 +18,14 @@
     justify-content: space-between;
     margin-bottom: 32px;
     position: relative;
+}
+
+@media (min-device-pixel-ratio: 2),
+(min-resolution: 192dpi),
+(min-resolution: 2dppx) {
+    .header-container {
+        background-image: url('../images/descktop-background-with-red-lines\ 2x.jpg');
+    }
 }
 
 .header-navigation {
@@ -29,7 +36,7 @@
 }
 
 .header-nav__list {
-    width: 224px;
+    max-width: 224px;
     height: 42px;
     text-decoration: none;
     list-style: none;
