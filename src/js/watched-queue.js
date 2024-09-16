@@ -1,9 +1,7 @@
 const watchedBtn = document.querySelector('.watched');
 const queueBtn = document.querySelector('.queue');
-const watchedMovieContainer = document.querySelector(
-  '.watched-movies-container'
-);
-const queueMovieContainer = document.querySelector('.queue-movies-container');
+const watchedMovieContainer = document.querySelector('.watched-movies');
+const queueMovieContainer = document.querySelector('.queue-movies');
 const addToWatchedBtn = document.querySelector('.addToWatched');
 const addToQueueBtn = document.querySelector('.addToQueue');
 
@@ -113,7 +111,7 @@ function displayMovies(listType) {
   // cu ajutorul functiei getMovieiList luam filmele din local storage si le salvam intr-o variabila moviesList
   const moviesList = getMoviesList(listType);
   const moviesContainer = document.querySelector(
-    `.${listType}-movies-container`
+    `.${listType}-movies`
   );
 
   moviesContainer.innerHTML = '';
