@@ -2,24 +2,6 @@ const watchedBtn = document.querySelector('.watched');
 const queueBtn = document.querySelector('.queue');
 const STORAGE_KEY = 'movies';
 
-
-// TEST FILME
-// const selectedMovie = [
-//   {
-//   title: 'Deadpool',
-//   genre: 'Action',
-//   year: 2021,
-//   id: '12345',
-//   },
-
-//   {
-//   title: 'Spiderman',
-//   genre: 'Action',
-//   year: 2001,
-//   id: 12346,
-//   }
-// ]
-
 // Functie adaugare in local storage
 function addToLocalStorage(movie, listType) {
   let moviesData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
@@ -32,11 +14,6 @@ function addToLocalStorage(movie, listType) {
     moviesData[listType].push(movie);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(moviesData));
   }
-}
-
-function getMoviesList(listType) {
-    let moviesData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {watched: [], queue: []};
-    return moviesData[listType];
 }
 
 function displayMovies(listType) {
@@ -58,15 +35,14 @@ function displayMovies(listType) {
     });
 }
 
-watchedBtn.addEventListener('click', (e) => {
-  e.preventDefault();
-  showWatched();
-});
+function getMoviesList(listType) {
+  let moviesData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
+    watched: [],
+    queue: [],
+  };
+  return moviesData[listType];
+}
 
-queueBtn.addEventListener('click', (e) => {
-  e.preventDefault();
-  showQueue();
-});
 
 function showWatched() {
   document.querySelector('.watched-movies-container').style.display = 'block';
@@ -80,9 +56,26 @@ function showQueue() {
   displayMovies('queue');
 }
 
+const addToWatchedBtn = document.uerySelector('.addToWatched');
+const addToQueueBtn = document.querySelector('.addToQueue');
 
-// TEST AFISARE FILME
-// if (!localStorage.getItem(STORAGE_KEY)) {
-//   addToLocalStorage(selectedMovie[1], 'watched');
-//   addToLocalStorage(selectedMovie[0], 'queue');
-// }
+addToWatchedBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  addToLocalStorage(selectedMovie, 'watched');
+});
+
+addToQueueBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  addToLocalStorage(selectedMovie, 'queue');
+})
+
+watchedBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  showWatched();
+});
+
+queueBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  showQueue();
+});
+
