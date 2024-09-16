@@ -1,41 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Filmoteka</title>
 
-    <!-- Normalizare stiluri/> -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
-    />
-    <!-- Import fonturi/> -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./css/styles.css" />
+ 
 
-    <link rel="stylesheet" href="./css/movies-default-display.css" />
-    <link rel="stylesheet" href="./index.css" />
-  </head>
-  <body>
-    <load src="./partials/header.html" />
-    <!-- <load src="./partials/movies-default-display.html" /> -->
 
-    <main>
-      <!-- Loads the specified .html file -->
-      <load src="./partials/vite-promo.html" />
-      <load src="./partials/badges.html" />
-    </main>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Filmoteka</title>
 
-    <load src="./partials/footer.html" />
+  <!-- Normalizare stiluri/> -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css" />
+  <!-- Import fonturi/> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./css/styles.css" />
 
-    <script type="module" src="main.js"></script>
-    <!-- <script type="module" src="js/watched-queue.js"></script> -->
-  </body>
+
+
+
+
+
+
+  <link rel="stylesheet" href="./css/watched-queue.css" />
+  <link rel="stylesheet" href="./css/header.css" />
+  <link rel="stylesheet" href="./css/movies-default-display.css" />
+  <link rel="stylesheet" href="./index.css" />
+
+</head>
+
+<body>
+  <load src="./partials/header.html" />
+  <load src="./partials/movies-default-display.html" />
+
+ <!-- <script type="module" src="js/watched-queue.js"></script> -->
+  <main>
+    <!-- Loads the specified .html file -->
+    <load src="./partials/vite-promo.html" />
+    <load src="./partials/badges.html" />
+  </main>
+
+  <load src="./partials/footer.html" />
+
+  <script type="module" src="main.js"></script>
+  <!-- <script type="module" src="js/watched-queue.js"></script> -->
+
+</body>
+
 </html>
+
