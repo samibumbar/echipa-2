@@ -1,52 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Library</title>
+    <link rel="stylesheet" crossorigin href="/echipa-2/assets/styles-c6PxjN29.css">
+  </head>
+  <body>
+    <!-- Header Section -->
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Library</title>
-
-  <!-- Normalizare stiluri/> -->
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css" />
-  <!-- Import fonturi/> -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-    rel="stylesheet" />
-
-
-  <script type="module" crossorigin src="/echipa-2/page-2.js"></script>
-  <link rel="modulepreload" crossorigin href="/echipa-2/assets/main-DgqiaetS.js">
-  <link rel="stylesheet" crossorigin href="/echipa-2/assets/main-BhdcJhs2.css">
-  <link rel="stylesheet" crossorigin href="/echipa-2/assets/page-2-CGYwETr_.css">
-  <link rel="stylesheet" crossorigin href="/echipa-2/assets/styles-BhO8ghPZ.css">
-</head>
-
-<body>
-  <!-- Header Section page-2-->
 <header>
   <section class="header-section">
-    <div class="header-container" id="my-library">
+    <div class="header-container" id="home">
       <div class="header-navigation">
+        <form class="search-form" id="search-form">
+          <input
+            type="text"
+            name="searchQuery"
+            autocomplete="off"
+            placeholder="Movie search"
+          />
+          <button type="submit">🔎</button>
+        </form>
         <nav class="header-nav">
           <ul class="header-nav__list">
             <li>
-              <a href="../index.html">HOME</a>
+              <a href="#home" class="active">HOME</a>
               <!-- <button type="button">HOME</button> -->
             </li>
             <li>
-              <a href="../page-2.html" class="active">MY LIBRARY</a>
+              <a href="#my-library">MY LIBRARY</a>
               <!-- <button type="button">MY LIBRARY</button> -->
             </li>
           </ul>
         </nav>
-      </div>
-      <div class="watched-queue-container">
-        <button class="watched">WATCHED</button>
-        <button class="queue">QUEUE</button>
       </div>
       <div class="logo-container">
         <svg class="header_logo__icon">
@@ -58,20 +46,18 @@
   </section>
 </header>
 
-  <main>
-    <div class="container">
-      
 
-      
-<div class="watched-movies container">
-</div>
+    <main>
+      <div class="container">
+        <h1 class="main-title">
+          <span class="main-title-gradient">Welcome</span> to page 2
+        </h1>
+        
 
-<div class="queue-movies container"></div>
-</div>
-    </div>
-  </main>
+      </div>
+    </main>
 
-  <!--Footer Section-->
+    <!--Footer Section-->
 <footer>
   <section>
     <div class="container">
@@ -103,7 +89,5 @@
   </section>
 </footer>
 
-
-</body>
-
+  </body>
 </html>
