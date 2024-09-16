@@ -47,6 +47,10 @@
 .watched-queue-container {
     display: flex;
     position: absolute;
-    top: 20px;
-    left: 20px;
+    top: 50px;
+    left: 1020px;
+}
+
+.hidden {
+    display: none;
 }
