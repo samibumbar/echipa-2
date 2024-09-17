@@ -1,7 +1,6 @@
-@import './css/footer.css';
-
-
-
-@import './css/modal-movie.css';
+@import './css/styles.css';
 @import './css/header.css';
+@import './css/movies-default-display.css';
+/* @import './css/modal-movie.css'; */
 
+@import './css/footer.css';

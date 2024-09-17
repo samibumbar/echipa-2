@@ -134,7 +134,7 @@
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
     .header-container {
-      background-image: url('../images/tablet-background-with-red-lines\ 2x.jpg');
+      background-image: url('../images/tablet-background-with-red-lines 2x.jpg');
     }
   } */
 
@@ -174,7 +174,7 @@
 /* Mobil styling */
 @media screen and (max-width: 320px) {
   .header-container {
-    height: 460px;
+    min-height: 460px;
     border-radius: 10px;
     background-image: url('../images/mobil-background-with-red-lines 1x.jpg');
 
