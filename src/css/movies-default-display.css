@@ -1,6 +1,7 @@
 .default-display-section {
     max-width: 320px;
     width: 100%;
+    margin: 20px auto;
 }
 
 .gallery {
@@ -39,12 +40,58 @@
     margin: 0;
 }
 
+.pagination-container { 
+    text-align: center; 
+} 
+  
+.pagination { 
+    padding: 16px; 
+    max-width: 374px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 374px;
+} 
+  
+.pagination a { 
+    color: #000000; 
+    font-weight: 500;
+    border-radius: 2px; 
+    padding: 5px 10px; 
+    margin: 1px; 
+    text-decoration: none; 
+    font-size: 12px; 
+    transition: background-color 0.3s; 
+} 
+  
+.pagination a.active { 
+    background-color: #B92F2C;
+    color: #FFFFFF;
+} 
+
+  
+.pagination .arrow { 
+    font-size: 20px; 
+    font-weight: bold; 
+    margin: 0 10px; 
+    cursor: pointer; 
+    color: #000000; 
+    background-color: #F7F7F7;
+} 
+  
+.content { 
+    padding: 20px; 
+    border-radius: 8px; 
+    margin-top: 20px; 
+}
+
+
 @media screen and (min-width:768px) {
     .default-display-section {
         max-width: 768px;
         width: 100%;
         padding: 32px;
-        margin: 0;
+        margin: 32px auto;
     }
     
     .galleryContainer_image {
@@ -67,24 +114,31 @@
         gap: 32px;
         margin: 0;
     }
+
+    #pagination {
+        margin: 60px auto;
+        flex-wrap: nowrap;
+        max-width: 600px;
+    }
 }
 
-@media screen and (min-width:1158px) {
+@media screen and (min-width:1200px) {
     .default-display-section {
-        max-width: 1280px;
+        margin-top: 32px;
+        max-width: 1200px;
         width: 100%;
-        padding: 32px;
+        padding: 30px;
+        margin: 32px auto;
     }
     
     .galleryContainer_image {
-        max-width: 395px;
+        max-width: 394px;
         width: 100%;
         height: 574px;
     }
     
     .galleryContainer_card {
-        max-width: 395px;
-        width: 100%;
+        max-width: 364px;
         height: 634px;
         margin: 0;
     }
@@ -93,5 +147,20 @@
         flex-wrap: wrap;
         display: flex;
         gap: 16px;
+        max-width: 1200px;
+        width: 100%;
+    }
+
+    #pagination {
+        margin: 60px auto;
     }
 }
+
+/* .dot {
+    height: 25px;
+  width: 25px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+} */
+

@@ -4,7 +4,8 @@ import axios from 'axios';
 const galleryContainer = document.querySelector('.default-display_gallery');
 const photosUrl = `https://image.tmdb.org/t/p/original/`
 
-
+let queryPage = 1;
+// document.querySelector('.dot').style.visibility='hidden'
 
 const options = {
     method: 'GET',
@@ -35,11 +36,17 @@ const options = {
     10752: "War",
     37: "Western",
   };
+
+  let posts = 20;
   
-  function galleryDisplay() {
-  fetch('https://api.themoviedb.org/3/trending/movie/day?language=en-US&per_page=18', options)
-    .then(response => response.json())
-    .then(response => response.results.forEach(element => {
+  async function galleryDisplay() {
+    try {
+      
+      const datas = await axios.get(`https://api.themoviedb.org/3/trending/movie/day?api_key=1cfedce161301b2c5c05cb8511736481&per_page=${posts}&page=${queryPage}`, options)
+      const results = datas.data.results;
+      let v = Object.values(results)
+    
+      v.forEach(element => {
         let date = `${element.release_date}`.slice(0, 4);
         let div = document.createElement('div')
         const movieGenre = element.genre_ids.map((id) => genres[id] || "Unknown").join(", ");
@@ -47,12 +54,86 @@ const options = {
         <img src="${photosUrl}${element.poster_path}" class="galleryContainer_image" alt="${element.title} photo">
         <h2 class="galleryContainer_title">${element.title}</h2>
         <p class="galleryContainer_subtitle">${movieGenre} | ${date}</p>
-      `;
-      galleryContainer.appendChild(div);
-      div.classList.add(`galleryContainer_card`)
-  })
-)
-    .catch(err => console.error(err));
-    };
+        `;
+      
+        galleryContainer.appendChild(div);
+        div.classList.add(`galleryContainer_card`)
+  })}
+  catch (error) {
+  console.log(error.message)}
+};
 
-    galleryDisplay()
+galleryDisplay()
+  
+
+document.addEventListener("DOMContentLoaded", function () {
+  const paginationDiv =  
+  document.getElementById("pagination"); 
+  const itemsPerPage = 1; 
+  const totalItems = 15; 
+
+  function generateContent(page) { 
+    document.querySelector(`.default-display_gallery`).innerHTML='';
+        
+    for (let i = (page - 1) * itemsPerPage + 1; 
+      i <= page * itemsPerPage; i++) { 
+      galleryDisplay() 
+      } 
+    } 
+  
+    function generatePagination() {
+      const totalPages = Math.ceil(totalItems / itemsPerPage); 
+      paginationDiv.innerHTML = "";
+      const prevArrow = document.createElement("span"); 
+      prevArrow.className = "arrow"; 
+      prevArrow.textContent = "←"; 
+      prevArrow.addEventListener("click", function () { 
+        
+        if (queryPage > 1) {     
+          queryPage--; 
+          generatePagination();
+          generateContent(queryPage);    
+        } 
+        });  
+        
+        paginationDiv.appendChild(prevArrow); 
+        
+        let maxValue = Math.max(totalPages);
+        for (let i = 1; i <= totalPages; i++) {     
+          const link = document.createElement("a"); 
+          link.href = "#"; 
+          link.textContent = i;
+          
+          if (i === queryPage) { 
+            link.classList.add("active"); 
+            }  // else if ( i  > queryPage +1 ) {
+              // i.style.visibility='hidden'
+              // document.querySelector('.dot').style.visibility='visible'
+
+          link.addEventListener("click", function () {  
+            queryPage = i; 
+            generateContent(queryPage); 
+            generatePagination(); 
+          }); 
+  
+          paginationDiv.appendChild(link); 
+        } 
+        
+        const nextArrow = document.createElement("span"); 
+        nextArrow.className = "arrow"; 
+        nextArrow.textContent = "→"; 
+        nextArrow.addEventListener("click", function () { 
+          
+          if (queryPage < totalPages) {    
+            queryPage++
+            generateContent(queryPage);  
+            generatePagination(); 
+          } 
+           
+        }); 
+        paginationDiv.appendChild(nextArrow); 
+    } 
+   
+    generatePagination(); 
+});
+
