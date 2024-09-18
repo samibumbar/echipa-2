@@ -1,14 +1,40 @@
 <section class="default-display-section">
-    <div class="default-display_gallery" id="default-display_gallery">
-
+  <div class="default-display_gallery" id="default-display_gallery">
+    <div id="movieModal" class="modal is-hidden">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="modal-contend__wrapper">
+          <div class="wrapper-item">
+            <img
+              id="modal-poster"
+              src="../images/test-card.jpg"
+              alt="Movie Poster"
+            />
+          </div>
+          <div class="wrapper-item-2">
+            <h2 id="modal-title">A FISTFUL OF LEAD</h2>
+            <!--Titlu-->
+            <div class="about-modal">
+              <h3 id="modal-genres">ABOUT</h3>
+              <!--Genurile-->
+              <p id="modal-description"></p>
+            </div>
+            <div class="modal-buttons">
+              <button class="add-to-watched" id="add-to-watched">
+                ADD TO WATCHED
+              </button>
+              <button class="add-to-queue" id="add-to-queue">
+                ADD TO QUEUE
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-        <div class="pagination-container"> 
-            <div id="pagination" 
-                 class="pagination"> 
-              </div> 
-            <div id="content" 
-                 class="content"> 
-              </div>
-        </div> 
+  </div>
+  <div class="pagination-container">
+    <div id="pagination" class="pagination"></div>
+    <div id="content" class="content"></div>
+  </div>
 </section>
 <script type="module" src="./js/movies-default-display.js"></script>
