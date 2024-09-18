@@ -11,7 +11,9 @@
   height: 550px;
   padding: 10px;
 }
-
+.is-hidden {
+  display: none;
+}
 .wrapper-item img {
   width: 375px;
   height: 478px;
@@ -34,6 +36,9 @@
   justify-content: flex-end;
   font-size: 30px;
   padding-right: 30px;
+  background: white;
+  border: none;
+  cursor: pointer;
 }
 .modal-buttons button {
   font-size: 12px;
@@ -43,6 +48,7 @@
   color: black;
   background-color: white;
   border-radius: 50px;
+  cursor: pointer;
 }
 .modal-buttons button:hover,
 .modal-buttons button:focus {
