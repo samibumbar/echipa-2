@@ -17,8 +17,8 @@
     margin: 32px;
     position: relative;
 
-
 }
+
 
 /* @media (min-device-pixel-ratio: 2),
 (min-resolution: 192dpi),
@@ -251,6 +251,8 @@
         justify-content: space-between;
 
     }
+
+   
 
     /* @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
