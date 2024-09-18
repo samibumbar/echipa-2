@@ -45,7 +45,7 @@ function rotateBackground() {
   }
 
   // Generează un index aleatoriu pentru imaginea curentă
-  const randomIndex = Math.floor(Math.random() * backgroundImages[currentDevice].length);
+  let randomIndex = Math.floor(Math.random() * backgroundImages[currentDevice].length);
 
   // Asigură-te că imaginea nu se repetă imediat
   while (randomIndex === currentBackgroundIndex) {
