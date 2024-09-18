@@ -1,30 +1,8 @@
 "use strict";
 
-// const backgroundImages = [
-//   '../images/background-orange-1x.jpg',
-//   '../images/background-yellow-1x.jpg',
-//   '../images/background-red-1x.jpg'
-// ];
-
-// let currentBackgroundIndex = 0;
-
-// function rotateBackground() {
-//   const randomIndex = Math.floor(Math.random() * backgroundImages.length);
-//   if (randomIndex !== currentBackgroundIndex) {
-//     currentBackgroundIndex = randomIndex;
-//     document.querySelector('.header-container').style.backgroundImage = `url('${backgroundImages[randomIndex]}')`;
-//   }
-// }
-
-// // Call the rotateBackground function initially to set a random background
-// rotateBackground();
-
-// // Set an interval to rotate the background every 10 seconds (adjust as needed)
-// setInterval(rotateBackground, 5000);
-
 
 const backgroundImages = {
-  desktop: ['./images/desktop/background-red-1x.jpg', './images/desktop/background-orange-1x.jpg', './images/desktop/background-yellow-1x.jpg'],
+  desktop: ['images/desktop/background-red-1x.jpg', 'images/desktop/background-orange-1x.jpg', 'images/desktop/background-yellow-1x.jpg'],
   tablet: ['./images/desktop/background-red-1x.jpg', './images/desktop/background-orange-1x.jpg', './images/desktop/background-yellow-1x.jpg'],
   mobile: ['./images/mobile/bgd-mobil-red-1x.jpg', './images/mobile/bgd-mobil-orange-1x.jpg', './images/mobile/bgd-mobil-yellow-1x.jpg']
 };
@@ -44,10 +22,10 @@ function rotateBackground() {
     currentDevice = 'mobile';
   }
 
-  // Generează un index aleatoriu pentru imaginea curentă
+  // index aleatoriu pentru imaginea curentă
   let randomIndex = Math.floor(Math.random() * backgroundImages[currentDevice].length);
 
-  // Asigură-te că imaginea nu se repetă imediat
+  // imaginea nu se repetă imediat
   while (randomIndex === currentBackgroundIndex) {
     randomIndex = Math.floor(Math.random() * backgroundImages[currentDevice].length);
   }
@@ -61,4 +39,27 @@ function rotateBackground() {
 rotateBackground();
 
 // Interval pentru a schimba imaginea în mod regulat
-setInterval(rotateBackground, 3000); // Schimbă imaginea la fiecare 10 secunde
+setInterval(rotateBackground, 3000); // Schimbă imaginea la fiecare 3 secunde
+
+
+// const backgroundImages = [
+//   '../images/background-orange-1x.jpg',
+//   '../images/background-yellow-1x.jpg',
+//   '../images/background-red-1x.jpg'
+// ];
+
+// let currentBackgroundIndex = 0;
+
+// function rotateBackground() {
+//   const randomIndex = Math.floor(Math.random() * backgroundImages.length);
+//   if (randomIndex !== currentBackgroundIndex) {
+//     currentBackgroundIndex = randomIndex;
+//     document.querySelector('.header-container').style.backgroundImage = `url('${backgroundImages[randomIndex]}')`;
+//   }
+// }
+
+// // Call the rotateBackground function initially to set a random background
+// rotateBackground();
+
+// // Set an interval to rotate the background every 5 seconds (adjust as needed)
+// setInterval(rotateBackground, 5000);
