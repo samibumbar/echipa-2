@@ -1,7 +1,9 @@
 const watchedBtn = document.querySelector('.watched');
 const queueBtn = document.querySelector('.queue');
-const watchedMovieContainer = document.querySelector('.watched-movies-container');
-const queueMovieContainer = document.querySelector('.queue-movies-container');
+const watchedMoviesContainer = document.querySelector(
+  '.watched-movies-container'
+);
+const queueMoviesContainer = document.querySelector('.queue-movies-container');
 // const addToWatchedBtn = document.querySelector('.addToWatched');
 // const addToQueueBtn = document.querySelector('.addToQueue');
 
@@ -37,8 +39,9 @@ function displayMovies(listType) {
   // cu ajutorul functiei getMovieiList luam filmele din local storage si le salvam intr-o variabila moviesList
   const moviesList = getMoviesList(listType);
   const moviesContainer = document.querySelector(
-    `.${listType}-movies-container`
+    `.${listType}-movies-container .movies-container`
   );
+  console.log(moviesContainer);
 
   moviesContainer.innerHTML = '';
 
@@ -48,8 +51,8 @@ function displayMovies(listType) {
     movieCard.className = 'movie-card';
     movieCard.innerHTML = `
       <img src="${movie.imageUrl}" alt="${movie.title}" class="movie-poster">
-      <h3>${movie.title}</h3>
-      <p>${movie.genre} | ${movie.year}</p>
+      <h3 class="movie-title">${movie.title}</h3>
+      <p class="movie-subtitle">${movie.genre} | ${movie.year}</p>
     `;
     moviesContainer.appendChild(movieCard);
   });
@@ -57,15 +60,15 @@ function displayMovies(listType) {
 
 // functie care afiseaza filmele selectate care au fost deja vazute
 function showWatched() {
-  watchedMovieContainer.style.display = 'block';
-  queueMovieContainer.style.display = 'none';
+  watchedMoviesContainer.style.display = 'block';
+  queueMoviesContainer.style.display = 'none';
   displayMovies('watched');
 }
 
 // functie care afiseaza filmele selectate pentru a fi vizionate
 function showQueue() {
-  watchedMovieContainer.style.display = 'none';
-  queueMovieContainer.style.display = 'block';
+  watchedMoviesContainer.style.display = 'none';
+  queueMoviesContainer.style.display = 'block';
   displayMovies('queue');
 }
 
@@ -95,19 +98,20 @@ queueBtn.addEventListener('click', e => {
   showQueue();
 });
 
-// function getMovieFromModal() {
-//   // Preluăm datele filmului din elementele modalului
-//   const title = document.querySelector('.modal-title').textContent;
-//   const genre = document.querySelector('.modal-genre').textContent;
-//   const year = document.querySelector('.modal-year').textContent;
-//   const id = document.querySelector('[data-movie-id]').getAttribute('data-movie-id');
+function getMovieFromModal() {
+  // Preluăm datele filmului din elementele modalului
+  const title = document.querySelector('.modal-title').textContent;
+  const genre = document.querySelector('.modal-genre').textContent;
+  const year = document.querySelector('.modal-year').textContent;
+  const id = document
+    .querySelector('[data-movie-id]')
+    .getAttribute('data-movie-id');
 
-//   // Creem obiectul `selectedMovie` cu aceste date
-//   return {
-//     title: title,
-//     genre: genre,
-//     year: year,
-//     id: id,
-//   };
-// }
-
+  // Creem obiectul `selectedMovie` cu aceste date
+  return {
+    title: title,
+    genre: genre,
+    year: year,
+    id: id,
+  };
+}
