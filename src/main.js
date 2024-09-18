@@ -1,1 +1,1 @@
-import "./js/modal-movie.js"
+import './js/modal-movie.js';
