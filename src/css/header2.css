@@ -1,8 +1,7 @@
 .header-section {
     max-width: 1280px;
-    height: 316px;
+    /* min-height: 316px; */
     margin: 0 auto;
-
 }
 
 .header-container {
@@ -10,9 +9,9 @@
     /* flex-direction: column; */
     /* justify-content: space-between; */
     max-width: 1216px;
-    height: 316px;
+    min-height: 316px;
     border-radius: 15px;
-    background-image: url('../images/descktop-background-with-red-lines\ 1x.jpg');
+    background-image: url('../images/desktop/background-red-1x.jpg');
     background-size: cover;
    
     margin: 32px;
@@ -21,13 +20,13 @@
 
 }
 
-@media (min-device-pixel-ratio: 2),
+/* @media (min-device-pixel-ratio: 2),
 (min-resolution: 192dpi),
 (min-resolution: 2dppx) {
     .header-container {
-        background-image: url('../images/descktop-background-with-red-lines\ 2x.jpg');
+        background-image: url('../images/desktop/background-red-2x.jpg');
     }
-}
+} */
 
 
 /* .header-navigation {
@@ -169,22 +168,22 @@
 
 
 /* Tablet styling */
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 480px) and (max-width: 767px) {
     .header-container {
-        height: 222px;
+        min-height: 222px;
         flex-direction: column;
         flex-wrap: wrap;
-        background-image: url('../images/tablet-background-with-red-lines\ 1x.jpg');
+        background-image: url('../images/desktop/background-red-1x.jpg');
 
     }
 
-    @media (min-device-pixel-ratio: 2),
+    /* @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
         .header-container {
             background-image: url('../images/tablet-background-with-red-lines\ 2x.jpg');
         }
-    }
+    } */
 
     .header-nav {
         margin-left: 16px;
@@ -232,34 +231,34 @@
 }        
 
 /* Pozitie intermediara */
-
+/* 
 @media screen and (max-width: 500px) {
     .watched-queue-container {
         position: absolute;
         top: 60px;
         left: 16px;
         }
-}
+} */
 
 /* Mobil styling */
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 479px) {
     .header-container {
-        height: 460px;
+        min-height: 460px;
         border-radius: 10px;
-        background-image: url('../images/mobil-background-with-red-lines\ 1x.jpg');
+        background-image: url('../images/mobile/bgd-mobil-red-1x.jpg');
 
         flex-direction: column;
         justify-content: space-between;
 
     }
 
-    @media (min-device-pixel-ratio: 2),
+    /* @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
         .header-container {
-            background-image: url('../images/mobil-background-with-red-lines\ 2x.jpg');
+            background-image: url('../images/mobile/bgd-mobil-red-2x.jpg');
         }
-    }
+    } */
 
 
     .header-nav {
