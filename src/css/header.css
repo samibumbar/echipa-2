@@ -11,7 +11,7 @@
   max-width: 1216px;
   min-height: 316px;
   border-radius: 15px;
-  background-image: url('/images/desktop/background-red-1x.jpg');
+  /* background-image: url('/images/desktop/background-red-1x.jpg'); */
   /* background: linear-gradient(273.67deg, rgba(0, 0, 0, 0.49) -2.09%, rgba(0, 0, 0, 0) 99.83%); */
   background-size: cover;
   /* background-position: center; */
@@ -129,7 +129,7 @@
 @media screen and (min-width: 480px) and (max-width: 767px) {
   .header-container {
     min-height: 222px;
-    background-image: url('/images/desktop/background-red-1x.jpg');
+    /* background-image: url('/images/desktop/background-red-1x.jpg'); */
   }
 
   /*   @media (min-device-pixel-ratio: 2),
@@ -178,7 +178,7 @@
   .header-container {
     min-height: 460px;
     border-radius: 10px;
-    background-image: url('/images/mobile/bgd-mobil-red-1x.jpg');
+    /* background-image: url('/images/mobile/bgd-mobil-red-1x.jpg'); */
 
     flex-direction: column;
     justify-content: space-between;
