@@ -1,4 +1,5 @@
-'use strict';
+// 'use strict';
+
 
 const backgroundImages = {
   desktop: [
@@ -18,43 +19,44 @@ const backgroundImages = {
   ],
 };
 
-let currentBackgroundIndex = 0;
-let currentDevice = 'desktop'; // Setează implicit dispozitivul la desktop
 
-function rotateBackground() {
-  const headerContainer = document.querySelector('.header-container');
+// let currentBackgroundIndex = 0;
+// let currentDevice = 'desktop'; // Setează implicit dispozitivul la desktop
 
-  // Detectarea dispozitivului (poate fi optimizată)
-  if (window.innerWidth >= 768) {
-    currentDevice = 'desktop';
-  } else if (window.innerWidth >= 480) {
-    currentDevice = 'tablet';
-  } else {
-    currentDevice = 'mobile';
-  }
+// function rotateBackground() {
+//   const headerContainer = document.querySelector('.header-container');
 
-  // index aleatoriu pentru imaginea curentă
-  let randomIndex = Math.floor(
-    Math.random() * backgroundImages[currentDevice].length
-  );
+//   // Detectarea dispozitivului (poate fi optimizată)
+//   if (window.innerWidth >= 768) {
+//     currentDevice = 'desktop';
+//   } else if (window.innerWidth >= 480) {
+//     currentDevice = 'tablet';
+//   } else {
+//     currentDevice = 'mobile';
+//   }
 
-  // imaginea nu se repetă imediat
-  while (randomIndex === currentBackgroundIndex) {
-    randomIndex = Math.floor(
-      Math.random() * backgroundImages[currentDevice].length
-    );
-  }
+//   // index aleatoriu pentru imaginea curentă
+//   let randomIndex = Math.floor(
+//     Math.random() * backgroundImages[currentDevice].length
+//   );
 
-  // Actualizează indexul curent și selectează noua imagine
-  currentBackgroundIndex = randomIndex;
-  headerContainer.style.backgroundImage = `url('${backgroundImages[currentDevice][randomIndex]}')`;
-}
+//   // imaginea nu se repetă imediat
+//   while (randomIndex === currentBackgroundIndex) {
+//     randomIndex = Math.floor(
+//       Math.random() * backgroundImages[currentDevice].length
+//     );
+//   }
 
-// Apel inițial pentru a seta imaginea de fundal
-rotateBackground();
+//   // Actualizează indexul curent și selectează noua imagine
+//   currentBackgroundIndex = randomIndex;
+//   headerContainer.style.backgroundImage = `url('${backgroundImages[currentDevice][randomIndex]}')`;
+// }
 
-// Interval pentru a schimba imaginea în mod regulat
-setInterval(rotateBackground, 3000); // Schimbă imaginea la fiecare 3 secunde
+// // Apel inițial pentru a seta imaginea de fundal
+// rotateBackground();
+
+// // Interval pentru a schimba imaginea în mod regulat
+// setInterval(rotateBackground, 3000); // Schimbă imaginea la fiecare 3 secunde
 
 // const backgroundImages = [
 //   '../images/background-orange-1x.jpg',
