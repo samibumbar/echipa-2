@@ -1,2 +1,2 @@
 document.addEventListener("DOMContentLoaded",()=>{const t=document.getElementById("default-display_gallery"),n=document.getElementById("close-modal-btn");document.querySelector(".modal-content");const e=document.getElementById("movieModal");t.addEventListener("click",()=>{e.classList.remove("is-hidden")}),n.addEventListener("click",d=>{d.stopPropagation,e.classList.add("is-hidden"),console.log("Modal should be hidden now")}),e.addEventListener("click",d=>{d.target===e&&e.classList.add("is-hidden")})});
-//# sourceMappingURL=main-BJ2qKfqs.js.map
+//# sourceMappingURL=main-BWiN4KbY.js.map
