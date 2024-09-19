@@ -11,7 +11,7 @@
     max-width: 1216px;
     min-height: 316px;
     border-radius: 15px;
-    background-image: url('../images/desktop/background-red-1x.jpg');
+    background-image: url('/images/desktop/background-red-1x.jpg');
     background-size: cover;
     margin: 32px;
 
@@ -159,7 +159,7 @@
         min-height: 222px;
         flex-direction: column;
         flex-wrap: wrap;
-        background-image: url('../images/desktop/background-red-1x.jpg');
+        background-image: url('/images/desktop/background-red-1x.jpg');
 
     } 
 
@@ -212,7 +212,7 @@
     .header-container {
         min-height: 460px;
         border-radius: 10px;
-        background-image: url('../images/mobile/bgd-mobil-red-1x.jpg');
+        background-image: url('/images/mobile/bgd-mobil-red-1x.jpg');
         position: relative;
 }
 
@@ -258,6 +258,19 @@
     .logo-text,
     .logo-container svg {
         display: none;
+    }
+    .watched-queue-container {
+        gap: 4px;
+    }
+
+    .watched {
+        padding: 10px 23px 10px 23px;
+        height: 34px;
+    }
+
+    .queue {
+        padding: 10px 24px 10px 24px;
+        height: 34px;
     }
 
 
