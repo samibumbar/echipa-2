@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   closeModalBtn.addEventListener('click', event => {
     event.stopPropagation;
 
-    modal.classList.add('is-hidden');
+    modal.style.visibility= 'hidden';
     console.log('Modal should be hidden now');
   });
   modal.addEventListener('click', event => {
