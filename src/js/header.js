@@ -1,62 +1,60 @@
-// 'use strict';
+'use strict';
 
+const backgroundImages = {
+  desktop: [
+    '/images/desktop/background-red-1x.jpg',
+    '/images/desktop/background-orange-1x.jpg',
+    '/images/desktop/background-yellow-1x.jpg',
+  ],
+  tablet: [
+    '/images/desktop/background-red-1x.jpg',
+    '/images/desktop/background-orange-1x.jpg',
+    '/images/desktop/background-yellow-1x.jpg',
+  ],
+  mobile: [
+    '/images/mobile/bgd-mobil-red-1x.jpg',
+    '/images/mobile/bgd-mobil-orange-1x.jpg',
+    '/images/mobile/bgd-mobil-yellow-1x.jpg',
+  ],
+};
 
-// const backgroundImages = {
-//   desktop: [
-//     '../public/images/desktop/background-red-1x.jpg',
-//     '../public/images/desktop/background-orange-1x.jpg',
-//     '../public/images/desktop/background-yellow-1x.jpg',
-//   ],
-//   tablet: [
-//     '../public/images/desktop/background-red-1x.jpg',
-//     '../public/images/desktop/background-orange-1x.jpg',
-//     '../public/images/desktop/background-yellow-1x.jpg',
-//   ],
-//   mobile: [
-//     '../public/images/mobile/bgd-mobil-red-1x.jpg',
-//     '../public/images/mobile/bgd-mobil-orange-1x.jpg',
-//     '../public/images/mobile/bgd-mobil-yellow-1x.jpg',
-//   ],
-// };
+let currentBackgroundIndex = 0;
+let currentDevice = 'desktop'; // Setează implicit dispozitivul la desktop
 
+function rotateBackground() {
+  const headerContainer = document.querySelector('.header-container');
 
-// let currentBackgroundIndex = 0;
-// let currentDevice = 'desktop'; // Setează implicit dispozitivul la desktop
+  // Detectarea dispozitivului (poate fi optimizată)
+  if (window.innerWidth >= 768) {
+    currentDevice = 'desktop';
+  } else if (window.innerWidth >= 480) {
+    currentDevice = 'tablet';
+  } else {
+    currentDevice = 'mobile';
+  }
 
-// function rotateBackground() {
-//   const headerContainer = document.querySelector('.header-container');
+  // index aleatoriu pentru imaginea curentă
+  let randomIndex = Math.floor(
+    Math.random() * backgroundImages[currentDevice].length
+  );
 
-//   // Detectarea dispozitivului (poate fi optimizată)
-//   if (window.innerWidth >= 768) {
-//     currentDevice = 'desktop';
-//   } else if (window.innerWidth >= 480) {
-//     currentDevice = 'tablet';
-//   } else {
-//     currentDevice = 'mobile';
-//   }
+  // imaginea nu se repetă imediat
+  while (randomIndex === currentBackgroundIndex) {
+    randomIndex = Math.floor(
+      Math.random() * backgroundImages[currentDevice].length
+    );
+  }
 
-//   // index aleatoriu pentru imaginea curentă
-//   let randomIndex = Math.floor(
-//     Math.random() * backgroundImages[currentDevice].length
-//   );
+  // Actualizează indexul curent și selectează noua imagine
+  currentBackgroundIndex = randomIndex;
+  headerContainer.style.backgroundImage = `url('${backgroundImages[currentDevice][randomIndex]}')`;
+}
 
-//   // imaginea nu se repetă imediat
-//   while (randomIndex === currentBackgroundIndex) {
-//     randomIndex = Math.floor(
-//       Math.random() * backgroundImages[currentDevice].length
-//     );
-//   }
+// Apel inițial pentru a seta imaginea de fundal
+rotateBackground();
 
-//   // Actualizează indexul curent și selectează noua imagine
-//   currentBackgroundIndex = randomIndex;
-//   headerContainer.style.backgroundImage = `url('${backgroundImages[currentDevice][randomIndex]}')`;
-// }
-
-// // Apel inițial pentru a seta imaginea de fundal
-// rotateBackground();
-
-// // Interval pentru a schimba imaginea în mod regulat
-// setInterval(rotateBackground, 3000); // Schimbă imaginea la fiecare 3 secunde
+// Interval pentru a schimba imaginea în mod regulat
+setInterval(rotateBackground, 3000); // Schimbă imaginea la fiecare 3 secunde
 
 // const backgroundImages = [
 //   '../images/background-orange-1x.jpg',
