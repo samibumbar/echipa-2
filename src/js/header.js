@@ -1,22 +1,24 @@
 // 'use strict';
 
-// const backgroundImages = {
-//   desktop: [
-//     '../public/images/desktop/background-red-1x.jpg',
-//     '../public/images/desktop/background-orange-1x.jpg',
-//     '../public/images/desktop/background-yellow-1x.jpg',
-//   ],
-//   tablet: [
-//     '../public/images/desktop/background-red-1x.jpg',
-//     '../public/images/desktop/background-orange-1x.jpg',
-//     '../public/images/desktop/background-yellow-1x.jpg',
-//   ],
-//   mobile: [
-//     '../public/images/mobile/bgd-mobil-red-1x.jpg',
-//     '../public/images/mobile/bgd-mobil-orange-1x.jpg',
-//     '../public/images/mobile/bgd-mobil-yellow-1x.jpg',
-//   ],
-// };
+
+const backgroundImages = {
+  desktop: [
+    '../public/images/desktop/background-red-1x.jpg',
+    '../public/images/desktop/background-orange-1x.jpg',
+    '../public/images/desktop/background-yellow-1x.jpg',
+  ],
+  tablet: [
+    '../public/images/desktop/background-red-1x.jpg',
+    '../public/images/desktop/background-orange-1x.jpg',
+    '../public/images/desktop/background-yellow-1x.jpg',
+  ],
+  mobile: [
+    '../public/images/mobile/bgd-mobil-red-1x.jpg',
+    '../public/images/mobile/bgd-mobil-orange-1x.jpg',
+    '../public/images/mobile/bgd-mobil-yellow-1x.jpg',
+  ],
+};
+
 
 // let currentBackgroundIndex = 0;
 // let currentDevice = 'desktop'; // Setează implicit dispozitivul la desktop
