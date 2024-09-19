@@ -19,13 +19,13 @@
   transition: background-image 1s ease-in-out;
 }
 
-@media (min-device-pixel-ratio: 2),
+/* @media (min-device-pixel-ratio: 2),
   (min-resolution: 192dpi),
   (min-resolution: 2dppx) {
   .header-container {
     background-image: url('/images/desktop/background-red-2x.jpg');
   }
-}
+} */
 
 .header-navigation {
   display: flex;
@@ -132,13 +132,13 @@
     background-image: url('/images/desktop/background-red-1x.jpg');
   }
 
-  @media (min-device-pixel-ratio: 2),
+/*   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
     .header-container {
       background-image: url('/images/desktop/background-red-2x.jpg');
     }
-  }
+  } */
 
   .header-navigation {
     margin-left: 16px;
@@ -184,13 +184,13 @@
     justify-content: space-between;
   }
 
-  @media (min-device-pixel-ratio: 2),
+/*   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
     .header-container {
       background-image: url('/images/mobile/bgd-mobil-red-2x.jpg');
     }
-  }
+  } */
   .header-navigation {
     flex-wrap: wrap-reverse;
     margin-top: 14px;
