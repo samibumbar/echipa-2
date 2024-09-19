@@ -2,19 +2,19 @@
 
 const backgroundImages = {
   desktop: [
-    '/images/desktop/background-red-1x.jpg',
-    '/images/desktop/background-orange-1x.jpg',
-    '/images/desktop/background-yellow-1x.jpg',
+    '../public/images/desktop/background-red-1x.jpg',
+    '../public/images/desktop/background-orange-1x.jpg',
+    '../public/images/desktop/background-yellow-1x.jpg',
   ],
   tablet: [
-    '/images/desktop/background-red-1x.jpg',
-    '/images/desktop/background-orange-1x.jpg',
-    '/images/desktop/background-yellow-1x.jpg',
+    '../public/images/desktop/background-red-1x.jpg',
+    '../public/images/desktop/background-orange-1x.jpg',
+    '../public/images/desktop/background-yellow-1x.jpg',
   ],
   mobile: [
-    '/images/mobile/bgd-mobil-red-1x.jpg',
-    '../images/mobile/bgd-mobil-orange-1x.jpg',
-    '/images/mobile/bgd-mobil-yellow-1x.jpg',
+    '../public/images/mobile/bgd-mobil-red-1x.jpg',
+    '../public/images/mobile/bgd-mobil-orange-1x.jpg',
+    '../public/images/mobile/bgd-mobil-yellow-1x.jpg',
   ],
 };
 
