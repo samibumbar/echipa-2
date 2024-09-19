@@ -91,7 +91,7 @@
   .default-display-section {
     max-width: 768px;
     width: 100%;
-    padding: 32px;
+    
     margin: 32px auto;
   }
 
@@ -128,7 +128,7 @@
     margin-top: 32px;
     max-width: 1200px;
     width: 100%;
-    padding: 30px;
+    
     margin: 32px auto;
   }
   .about-modal p {
