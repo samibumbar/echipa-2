@@ -1,13 +1,9 @@
+const watchedMoviesContainer = document.querySelector('.watched-movies-container');
+const queueMoviesContainer = document.querySelector('.queue-movies-container');
 const watchedBtn = document.querySelector('.watched');
 const queueBtn = document.querySelector('.queue');
-const watchedMoviesContainer = document.querySelector(
-  '.watched-movies-container'
-);
-const queueMoviesContainer = document.querySelector('.queue-movies-container');
-// const addToWatchedBtn = document.querySelector('.addToWatched');
-// const addToQueueBtn = document.querySelector('.addToQueue');
-
 const STORAGE_KEY = 'movies';
+
 
 // Functie adaugare in local storage
 function addToLocalStorage(movie, listType) {
@@ -25,6 +21,7 @@ function addToLocalStorage(movie, listType) {
   }
 }
 
+
 // Functie pentru a lua lista de filme din local storage
 function getMoviesList(listType) {
   let moviesData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
@@ -36,27 +33,26 @@ function getMoviesList(listType) {
 
 // Functie pentru afisarea filmelor
 function displayMovies(listType) {
-  // cu ajutorul functiei getMovieiList luam filmele din local storage si le salvam intr-o variabila moviesList
   const moviesList = getMoviesList(listType);
   const moviesContainer = document.querySelector(
     `.${listType}-movies-container .movies-container`
   );
-  console.log(moviesContainer);
 
   moviesContainer.innerHTML = '';
 
-  // afisam filmele
   moviesList.forEach(movie => {
     const movieCard = document.createElement('div');
     movieCard.className = 'movie-card';
     movieCard.innerHTML = `
-      <img src="${movie.imageUrl}" alt="${movie.title}" class="movie-poster">
+      <iframe id="modal-trailer" width="100%" height="315" src="${movie.trailer}" 
+      frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
       <h3 class="movie-title">${movie.title}</h3>
-      <p class="movie-subtitle">${movie.genre} | ${movie.year}</p>
+      <p class="movie-subtitle">${movie.genres} | ${movie.rating} | ${movie.popularity}</p>
     `;
     moviesContainer.appendChild(movieCard);
   });
 }
+
 
 // functie care afiseaza filmele selectate care au fost deja vazute
 function showWatched() {
@@ -73,18 +69,21 @@ function showQueue() {
 }
 
 // // adaugare film in local storage la apasarea butonului watched
-// addToWatchedBtn.addEventListener('click', e => {
-//   e.preventDefault();
-//   const selectedMovie = getMovieFromModal();
-//   addToLocalStorage(selectedMovie, 'watched');
-// });
+document.addEventListener('click', function (e) {
+  e.preventDefault();
+  if (e.target && e.target.id === 'add-to-watched') {
+    console.log('Butonul Add to Watched a fost apăsat');
+    const selectedMovie = getMovieFromModal();
+    addToLocalStorage(selectedMovie, 'watched');
+  }
 
-// // adaugare film in local strogare la apasarea butonului queue
-// addToQueueBtn.addEventListener('click', e => {
-//   e.preventDefault();
-//   const selectedMovie = getMovieFromModal();
-//   addToLocalStorage(selectedMovie, 'queue');
-// });
+  if (e.target && e.target.id === 'add-to-queue') {
+    console.log('Butonul Add to Queue a fost apăsat');
+    const selectedMovie = getMovieFromModal();
+    addToLocalStorage(selectedMovie, 'queue');
+  }
+});
+
 
 // afisarea filmelor care au fost vizionate la apasarea butonului Watched din header
 watchedBtn.addEventListener('click', e => {
@@ -99,19 +98,23 @@ queueBtn.addEventListener('click', e => {
 });
 
 function getMovieFromModal() {
-  // Preluăm datele filmului din elementele modalului
-  const title = document.querySelector('.modal-title').textContent;
-  const genre = document.querySelector('.modal-genre').textContent;
-  const year = document.querySelector('.modal-year').textContent;
-  const id = document
-    .querySelector('[data-movie-id]')
-    .getAttribute('data-movie-id');
+  const title = document.getElementById('modal-title').textContent;
+  const rating = document.getElementById('modal-rating').textContent;
+  const votes = document.getElementById('modal-votes').textContent;
+  const popularity = document.getElementById('modal-popularity').textContent;
+  const genres = document.getElementById('modal-genres').textContent;
+  const description = document.getElementById('modal-description').textContent;
+  const trailer = document.getElementById('modal-trailer').src;
 
-  // Creem obiectul `selectedMovie` cu aceste date
+
   return {
-    title: title,
-    genre: genre,
-    year: year,
-    id: id,
+    id: Date.now(),
+    title,
+    rating,
+    votes,
+    popularity,
+    genres,
+    description,
+    trailer
   };
 }
