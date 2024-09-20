@@ -1,25 +1,25 @@
-const watchedMoviesContainer = document.querySelector('.watched-movies-container');
-const queueMoviesContainer = document.querySelector('.queue-movies-container');
+const moviesContainer = document.querySelector('.movies-container');
 const watchedBtn = document.querySelector('.watched');
 const queueBtn = document.querySelector('.queue');
 const STORAGE_KEY = 'movies';
 
+  // Functie adaugare in local storage
+  function addToLocalStorage(movie, listType) {
+    let moviesData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
+      watched: [],
+      queue: [],
+    };
 
-// Functie adaugare in local storage
-function addToLocalStorage(movie, listType) {
-  let moviesData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
-    watched: [],
-    queue: [],
+    // Verificăm dacă filmul există deja în listă
+    if (
+      !moviesData[listType].some(storedMovie => storedMovie.id === movie.id)
+    ) {
+      moviesData[listType].push(movie);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(moviesData));
+    } else {
+      alert('Acest film exista deja in lista!');
+    }
   };
-
-  // Verificăm dacă filmul există deja în listă
-  if (!moviesData[listType].some(storedMovie => storedMovie.id === movie.id)) {
-    moviesData[listType].push(movie);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(moviesData));
-  } else {
-    alert('Acest film exista deja in lista!');
-  }
-}
 
 
 // Functie pentru a lua lista de filme din local storage
@@ -34,51 +34,29 @@ function getMoviesList(listType) {
 // Functie pentru afisarea filmelor
 function displayMovies(listType) {
   const moviesList = getMoviesList(listType);
-  const moviesContainer = document.querySelector(
-    `.${listType}-movies-container .movies-container`
-  );
-
-  moviesContainer.innerHTML = '';
 
   moviesList.forEach(movie => {
     const movieCard = document.createElement('div');
     movieCard.className = 'movie-card';
     movieCard.innerHTML = `
-      <iframe id="modal-trailer" width="100%" height="315" src="${movie.trailer}" 
-      frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <img src="movie-imgSrc" width="100%" height="315" class="movie-image"/>
       <h3 class="movie-title">${movie.title}</h3>
-      <p class="movie-subtitle">${movie.genres} | ${movie.rating} | ${movie.popularity}</p>
+      <p class="movie-subtitle">${movie.genres} | 2020 </p>
     `;
     moviesContainer.appendChild(movieCard);
   });
 }
 
 
-// functie care afiseaza filmele selectate care au fost deja vazute
-function showWatched() {
-  watchedMoviesContainer.style.display = 'block';
-  queueMoviesContainer.style.display = 'none';
-  displayMovies('watched');
-}
-
-// functie care afiseaza filmele selectate pentru a fi vizionate
-function showQueue() {
-  watchedMoviesContainer.style.display = 'none';
-  queueMoviesContainer.style.display = 'block';
-  displayMovies('queue');
-}
-
 // // adaugare film in local storage la apasarea butonului watched
 document.addEventListener('click', function (e) {
   e.preventDefault();
   if (e.target && e.target.id === 'add-to-watched') {
-    console.log('Butonul Add to Watched a fost apăsat');
     const selectedMovie = getMovieFromModal();
     addToLocalStorage(selectedMovie, 'watched');
   }
 
   if (e.target && e.target.id === 'add-to-queue') {
-    console.log('Butonul Add to Queue a fost apăsat');
     const selectedMovie = getMovieFromModal();
     addToLocalStorage(selectedMovie, 'queue');
   }
@@ -88,13 +66,16 @@ document.addEventListener('click', function (e) {
 // afisarea filmelor care au fost vizionate la apasarea butonului Watched din header
 watchedBtn.addEventListener('click', e => {
   e.preventDefault();
-  showWatched();
+  moviesContainer.innerHTML = '';
+  displayMovies('watched');
+
 });
 
 // afisarea filmelor care urmeaza sa fie vizionate la apasarea butonului Queue din header
 queueBtn.addEventListener('click', e => {
   e.preventDefault();
-  showQueue();
+  moviesContainer.innerHTML = '';
+  displayMovies('queue');
 });
 
 function getMovieFromModal() {
@@ -118,3 +99,4 @@ function getMovieFromModal() {
     trailer
   };
 }
+
