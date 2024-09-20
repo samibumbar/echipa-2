@@ -127,7 +127,7 @@
 }
 
 .logo-container {
-    display: block;
+    display: flex;
     /* justify-content: flex-start;
     align-items: center;
     gap: 16px; */
@@ -244,6 +244,12 @@
         gap:8px;
         margin: 0 auto;
         margin-bottom: 74px;
+    }
+
+    .header_logo__icon {
+        width: 32px;
+        height: 32px;
+
     }
 
     .logo-text-2{
