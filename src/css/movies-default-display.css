@@ -2,10 +2,13 @@
   max-width: 320px;
   width: 100%;
   margin: 20px auto;
+  gap:10px;
+  max-width: 1280px;
 }
 
 .gallery {
   display: flex;
+  gap: 10px;
 }
 
 .galleryContainer_image {
@@ -42,7 +45,6 @@
 
 .pagination-container {
   text-align: center;
-  
 }
 
 .pagination {
@@ -50,13 +52,12 @@
   max-width: 374px;
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   max-width: 374px;
 }
 
 .pagination a {
   color: #000000;
-  height: 20px;
   font-weight: 500;
   border-radius: 2px;
   padding: 5px 10px;
@@ -70,7 +71,6 @@
   background-color: #b92f2c;
   color: #ffffff;
 }
-
 
 .pagination .arrow {
   font-size: 20px;
@@ -91,7 +91,7 @@
   .default-display-section {
     max-width: 768px;
     width: 100%;
-    padding: 32px;
+    
     margin: 32px auto;
   }
 
@@ -107,10 +107,6 @@
     height: 495px;
     margin: 0;
     padding: 0;
-  }
-
-  .hidden {
-    display: none;
   }
 
   .default-display_gallery {
@@ -132,14 +128,21 @@
     margin-top: 32px;
     max-width: 1200px;
     width: 100%;
-    padding: 30px;
+    
     margin: 32px auto;
+  }
+  .about-modal p {
+    margin-right: 60px;
+  }
+  .span {
+    margin-left: 60px;
   }
 
   .galleryContainer_image {
     max-width: 394px;
     width: 100%;
     height: 574px;
+    box-shadow: 0 0 12px 2px rgb(73, 45, 10);
   }
 
   .galleryContainer_card {
@@ -151,7 +154,7 @@
   .default-display_gallery {
     flex-wrap: wrap;
     display: flex;
-    gap: 16px;
+    gap: 20px;
     max-width: 1200px;
     width: 100%;
   }
@@ -160,9 +163,3 @@
     margin: 60px auto;
   }
 }
-
- .dots {
-  font-size: 30px;
-  font-weight: 700;
-  display: inline-block;
-} 

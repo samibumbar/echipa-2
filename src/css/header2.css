@@ -122,8 +122,13 @@
 }
 
 .logo-container {
-  display: block;
+
+/*   display: block; */
   /* justify-content: flex-start;
+
+    display: flex;
+    /* justify-content: flex-start;
+
     align-items: center;
     gap: 16px; */
   margin-left: 32px;
@@ -198,19 +203,7 @@
   }
 }
 
-@media screen and (max-width: 479px) {
-  .header-container {
-    min-height: 460px;
-    border-radius: 10px;
-    background-image: url('/images/mobile/bgd-mobil-red-1x.jpg');
-    position: relative;
-  }
 
-  .header-nav__list {
-    padding-bottom: 70px;
-    padding-left: 0;
-    justify-content: flex-start;
-  }
 
   .header-nav {
     flex-direction: column;
