@@ -1,10 +1,25 @@
-"use strict";
-
+'use strict';
 
 const backgroundImages = {
-  desktop: ['/images/desktop/background-red-1x.jpg', '/images/desktop/background-orange-1x.jpg', '/images/desktop/background-yellow-1x.jpg'],
-  tablet: ['/images/desktop/background-red-1x.jpg', '/images/desktop/background-orange-1x.jpg', '/images/desktop/background-yellow-1x.jpg'],
-  mobile: ['/images/mobile/bgd-mobil-red-1x.jpg', '../images/mobile/bgd-mobil-orange-1x.jpg', '/images/mobile/bgd-mobil-yellow-1x.jpg']
+  desktop: [
+
+    
+
+    '/images/desktop/background-red-1x.jpg',
+    '/images/desktop/background-orange-1x.jpg',
+    '/images/desktop/background-yellow-1x.jpg',
+  ],
+  tablet: [
+    '/images/desktop/background-red-1x.jpg',
+    '/images/desktop/background-orange-1x.jpg',
+    '/images/desktop/background-yellow-1x.jpg',
+  ],
+  mobile: [
+    '/images/mobile/bgd-mobil-red-1x.jpg',
+    '/images/mobile/bgd-mobil-orange-1x.jpg',
+    '/images/mobile/bgd-mobil-yellow-1x.jpg',
+
+  ],
 };
 
 let currentBackgroundIndex = 0;
@@ -23,11 +38,15 @@ function rotateBackground() {
   }
 
   // index aleatoriu pentru imaginea curentă
-  let randomIndex = Math.floor(Math.random() * backgroundImages[currentDevice].length);
+  let randomIndex = Math.floor(
+    Math.random() * backgroundImages[currentDevice].length
+  );
 
   // imaginea nu se repetă imediat
   while (randomIndex === currentBackgroundIndex) {
-    randomIndex = Math.floor(Math.random() * backgroundImages[currentDevice].length);
+    randomIndex = Math.floor(
+      Math.random() * backgroundImages[currentDevice].length
+    );
   }
 
   // Actualizează indexul curent și selectează noua imagine
@@ -40,7 +59,6 @@ rotateBackground();
 
 // Interval pentru a schimba imaginea în mod regulat
 setInterval(rotateBackground, 3000); // Schimbă imaginea la fiecare 3 secunde
-
 
 // const backgroundImages = [
 //   '../images/background-orange-1x.jpg',
