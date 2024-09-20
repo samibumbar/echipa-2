@@ -1,22 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-.default-display-section {
-  position: relative;
-}
+
 .modal {
-  position: absolute;
-  top: 0%;
+  position: fixed;
+  top: 10%;
   left: 15%;
   background-color: white;
-  width: 806px;
-  height: 550px;
+  width: 1000px;
+  height: 600px;
   padding: 10px;
+  border-radius: 5px;
 }
 .is-hidden {
   display: none;
 }
-.wrapper-item img {
+.wrapper-item iframe {
   width: 375px;
-  height: 478px;
+  height: 520px;
+  box-shadow: 0 0 8px 8px rgb(43, 24, 1);
+  border-radius: 10px;
 }
 .wrapper-item-2 {
   display: flex;
@@ -25,7 +26,7 @@
 }
 .modal-contend__wrapper {
   display: flex;
-  gap: 10px;
+  gap: 30px;
 }
 .modal-content {
   display: flex;
