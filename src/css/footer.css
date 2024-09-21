@@ -8,7 +8,7 @@
   color: #545454;
 }
 .container {
-  max-width: 1280px;
+  max-width: 1216px;
   min-height: 79px;
   margin: 0 auto;
   background-color: #f7f7f7;
@@ -19,14 +19,28 @@
   align-items: center;
   background-color: #f7f7f7;
 }
+@keyframes pulse-animation {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 .copy-right-icon {
   display: flex;
-  width: 14px;
-  height: 12.88px;
-  top: 5190px;
-  left: 479px;
+  width: 24px;
+  height: 22px;
   margin-left: 8px;
   margin-right: 8px;
+  animation: pulse-animation 1.2s infinite;
+  animation-timing-function: ease-in-out;
 }
 .copy-wrapper {
   display: flex;
