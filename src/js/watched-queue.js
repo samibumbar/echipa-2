@@ -1,6 +1,4 @@
 const moviesContainer = document.querySelector('.movies-container');
-const watchedBtn = document.querySelector('.watched');
-const queueBtn = document.querySelector('.queue');
 const STORAGE_KEY = 'movies';
 
   // Functie adaugare in local storage
@@ -50,7 +48,6 @@ function displayMovies(listType) {
 
 // // adaugare film in local storage la apasarea butonului watched
 document.addEventListener('click', function (e) {
-  e.preventDefault();
   if (e.target && e.target.id === 'add-to-watched') {
     const selectedMovie = getMovieFromModal();
     addToLocalStorage(selectedMovie, 'watched');
@@ -64,19 +61,23 @@ document.addEventListener('click', function (e) {
 
 
 // afisarea filmelor care au fost vizionate la apasarea butonului Watched din header
-watchedBtn.addEventListener('click', e => {
-  e.preventDefault();
-  moviesContainer.innerHTML = '';
-  displayMovies('watched');
+document.addEventListener('click', e => {
+  if (e.target && e.target.className === 'watched') {
+    console.log('buton watched apasat');
+    moviesContainer.innerHTML = ''
+    displayMovies('watched');
+  }
+
+  if (e.target && e.target.className === 'queue') {
+    console.log('buton queue apasat');
+    moviesContainer.innerHTML = '';
+    displayMovies('queue');
+  }
 
 });
 
 // afisarea filmelor care urmeaza sa fie vizionate la apasarea butonului Queue din header
-queueBtn.addEventListener('click', e => {
-  e.preventDefault();
-  moviesContainer.innerHTML = '';
-  displayMovies('queue');
-});
+
 
 function getMovieFromModal() {
   const title = document.getElementById('modal-title').textContent;
