@@ -1,80 +1,112 @@
-<article>
-  <title>Login & Register</title>
-  <!-- <style>
-  /* CSS pentru tranziții între formulare */
-  .form-hidden {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s ease-in-out, visibility 0s 0.5s;
-  }
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pagina Protejată</title>
+    <link rel="stylesheet" href="./login.css" />
+  </head>
+  <body>
+    <header id="protected-page">
+      <article>
+        <title>Login & Register</title>
+        <!-- <style>
+        /* CSS pentru tranziții între formulare */
+        .form-hidden {
+          opacity: 0;
+          visibility: hidden;
+          transition: opacity 0.5s ease-in-out, visibility 0s 0.5s;
+        }
+      
+        .form-visible {
+          opacity: 1;
+          visibility: visible;
+          transition: opacity 0.5s ease-in-out, visibility 0s;
+        }
+      </style> -->
+        <link rel="stylesheet" href="../css/login.css" />
+        <div class="container-login">
+          <!-- Form de login -->
+          <form action="#" id="login-form" class="login-form form-visible">
+            <h3>Login</h3>
+            <label for="email-input">
+              Email
+              <input
+                type="email"
+                placeholder="Email"
+                id="email-input"
+                required
+              />
+            </label>
+            <label for="password-input">
+              Password
+              <input
+                type="password"
+                placeholder="Password"
+                id="password-input"
+                required
+              />
+            </label>
+            <button class="login-btn" type="submit" id="login-btn">
+              Log in
+            </button>
+            <div class="social">
+              <div class="go" id="google">
+                <a class="fab fa-google"></a>Google
+              </div>
+              <div class="fb" id="facebook">
+                <a class="fab fa-facebook"></a>Facebook
+              </div>
+            </div>
+            <div class="form">
+              <p>
+                Don't have an account?
+                <a href="#" id="show-register">Create One</a>
+              </p>
+            </div>
+          </form>
 
-  .form-visible {
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 0.5s ease-in-out, visibility 0s;
-  }
-</style> -->
-  <link rel="stylesheet" href="./login.css" />
-  <div class="container-login">
-    <!-- Form de login -->
-    <form action="#" id="login-form" class="login-form form-visible">
-      <h3>Login</h3>
-      <label for="email-input">
-        Email
-        <input type="email" placeholder="Email" id="email-input" required />
-      </label>
-      <label for="password-input">
-        Password
-        <input
-          type="password"
-          placeholder="Password"
-          id="password-input"
-          required
-        />
-      </label>
-      <button class="login-btn" type="submit" id="login-btn">Log in</button>
-      <div class="social">
-        <div class="go" id="google"><a class="fab fa-google"></a>Google</div>
-        <div class="fb" id="facebook">
-          <a class="fab fa-facebook"></a>Facebook
+          <!-- Form de înregistrare -->
+          <form action="#" id="register-form" class="register-form form-hidden">
+            <h3>Register</h3>
+            <label for="register-email">
+              Email
+              <input
+                type="email"
+                placeholder="Email"
+                id="register-email"
+                required
+              />
+            </label>
+            <label for="register-password">
+              Password
+              <input
+                type="password"
+                placeholder="Password"
+                id="register-password"
+                required
+              />
+            </label>
+            <button class="login-btn" type="submit" id="register-btn">
+              Register
+            </button>
+            <div class="form">
+              <p>
+                Already have an account? <a href="#" id="show-login">Log in</a>
+              </p>
+            </div>
+          </form>
         </div>
-      </div>
-      <div class="form">
-        <p>
-          Don't have an account? <a href="#" id="show-register">Create One</a>
-        </p>
-      </div>
-    </form>
 
-    <!-- Form de înregistrare -->
-    <form action="#" id="register-form" class="register-form form-hidden">
-      <h3>Register</h3>
-      <label for="register-email">
-        Email
-        <input type="email" placeholder="Email" id="register-email" required />
-      </label>
-      <label for="register-password">
-        Password
-        <input
-          type="password"
-          placeholder="Password"
-          id="register-password"
-          required
-        />
-      </label>
-      <button class="login-btn" type="submit" id="register-btn">
-        Register
-      </button>
-      <div class="form">
-        <p>Already have an account? <a href="#" id="show-login">Log in</a></p>
-      </div>
-    </form>
-  </div>
+        <!-- SweetAlert2 pentru alerte -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
 
-  <!-- SweetAlert2 pentru alerte -->
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+        <script type="module" src="./js/loin.js"></script>
+      </article>
+    </header>
 
-  <script type="module" src="./js/loin.js"></script>
-</article>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
