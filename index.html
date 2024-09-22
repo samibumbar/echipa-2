@@ -21,10 +21,11 @@
     />
 
     <script type="module" crossorigin src="/echipa-2/index.js"></script>
-    <link rel="modulepreload" crossorigin href="/echipa-2/assets/header-B5Qt9EMX.js">
-    <link rel="modulepreload" crossorigin href="/echipa-2/assets/watched-queue-DTCfix27.js">
+    <link rel="modulepreload" crossorigin href="/echipa-2/assets/modal-movie-BPz322Ml.js">
+    <link rel="modulepreload" crossorigin href="/echipa-2/assets/watched-queue-sEEzqdP7.js">
     <link rel="modulepreload" crossorigin href="/echipa-2/assets/vendor-Cn2Vr82J.js">
-    <link rel="stylesheet" crossorigin href="/echipa-2/assets/watched-queue-CJIH2yGt.css">
+    <link rel="modulepreload" crossorigin href="/echipa-2/assets/search-DApRhO8r.js">
+    <link rel="stylesheet" crossorigin href="/echipa-2/assets/watched-queue-D3qLO_GP.css">
   </head>
 
   <body>
@@ -36,6 +37,8 @@
   <section class="header-section">
     <div class="header-container">
       <div class="header-navigation">
+        <div id="loading-indicator" style="display: none">Loading...</div>
+
         <form class="search-form" id="search-form">
           <input
             class="search-form__input"
@@ -43,8 +46,12 @@
             name="searchQuery"
             autocomplete="off"
             placeholder="Movie search"
+            id="search-input"
           />
-          <button class="search-form__button" type="submit">&#128269;</button>
+
+          <button class="search-form__button" type="submit" id="search-button">
+            &#128269;
+          </button>
         </form>
         <nav class="header-nav">
           <ul class="header-nav__list">
@@ -55,24 +62,22 @@
               <a href="page-2.html">MY LIBRARY</a>
 
               <!-- <button type="button">MY LIBRARY</button> -->
-
             </li>
           </ul>
         </nav>
       </div>
       <div class="logo-container">
         <svg class="header_logo__icon">
-
-<!--           <use href="/images/symbol-defs.svg#icon-sigla_descktop" /> -->
+          <!--           <use href="/images/symbol-defs.svg#icon-sigla_descktop" /> -->
 
           <use href="/echipa-2/images/symbol-defs.svg#icon-sigla_descktop" />
-
         </svg>
         <span class="logo-text">Filmoteka</span>
       </div>
     </div>
   </section>
 </header>
+<div class="movie-grid" id="movie-grid"></div>
 <!-- <script type="module" src="../js/header.js"></script> -->
 
       <section class="default-display-section">
