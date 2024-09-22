@@ -4,18 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
-  http-equiv="Content-Security-Policy"
-  content="default-src 'self'; font-src 'self' https://fonts.gstatic.com; style-src 'self' https://fonts.googleapis.com"
-/>
+      http-equiv="Content-Security-Policy"
+      content="
+        default-src 'self'; 
+        font-src 'self' https://fonts.gstatic.com; 
+        style-src 'self' https://fonts.googleapis.com; 
+        script-src 'self' https://cdn.jsdelivr.net https://www.gstatic.com https://www.googleapis.com; 
+        connect-src 'self' https://identitytoolkit.googleapis.com https://www.googleapis.com; 
+        img-src 'self' data:;"
+    />
     <link
-  href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-  rel="stylesheet"
-/>
-
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./login.css" />
     <title>Login & Register</title>
     <style>
-      /* Adăugare CSS pentru tranziția între formulare */
+      /* CSS pentru tranziții între formulare */
       .form-hidden {
         opacity: 0;
         visibility: hidden;
@@ -157,7 +162,7 @@
           .then(userCredential => {
             Swal.fire('Logare reușită!', 'Veți fi redirecționat.', 'success');
             setTimeout(() => {
-              window.location.href = 'samibumbar.github.io/echipa-2/';
+              window.location.href = 'https://samibumbar.github.io/echipa-2/';
             }, 2000);
           })
           .catch(error => {
@@ -203,7 +208,7 @@
       // Verificare a autentificării
       onAuthStateChanged(auth, user => {
         if (user) {
-          window.location.href = 'samibumbar.github.io/echipa-2/';
+          window.location.href = 'https://samibumbar.github.io/echipa-2/';
         }
       });
     </script>
