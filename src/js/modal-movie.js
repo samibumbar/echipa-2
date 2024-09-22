@@ -9,10 +9,6 @@ export function openModal(
   voteCount = null,
   popularity = null
 ) {
-  console.log('openModal called'); // Verificăm dacă funcția este apelată
-  console.log('Title:', title);
-  console.log('Trailer URL:', trailerUrl);
-
   const modal = document.getElementById('movieModal');
   const modalPoster = document.getElementById('modal-poster');
   const modalTitle = document.getElementById('modal-title');
@@ -22,7 +18,6 @@ export function openModal(
   const modalVotes = document.getElementById('modal-votes');
   const modalPopularity = document.getElementById('modal-popularity');
 
-  // Verificăm dacă toate elementele există
   if (
     !modal ||
     !modalPoster ||
@@ -53,17 +48,17 @@ export function openModal(
 
   // Dacă există un trailer, adăugăm un iframe, altfel afișăm posterul
   if (trailerUrl) {
-    console.log('Afișare trailer');
     modalPoster.outerHTML = `<iframe id="modal-trailer" width="100%" height="315" src="${trailerUrl}" 
       frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
   } else {
-    console.log('Afișare poster');
     modalPoster.src = posterUrl;
   }
 
-  // Facem modalul vizibil
   modal.classList.remove('is-hidden');
   modal.classList.add('is-visible');
+
+  // Adăugăm ascultător pentru tasta Escape pentru a închide modalul
+  document.addEventListener('keydown', handleEscapeKey);
 }
 
 // Funcția closeModal care închide modalul
@@ -80,9 +75,16 @@ export function closeModal() {
 
   modal.classList.remove('is-visible');
   modal.classList.add('is-hidden');
+
+  document.removeEventListener('keydown', handleEscapeKey);
 }
 
-// Atașăm evenimentul de închidere la butonul close
+function handleEscapeKey(event) {
+  if (event.key === 'Escape') {
+    closeModal();
+  }
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   document
     .getElementById('close-modal-btn')

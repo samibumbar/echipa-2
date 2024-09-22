@@ -2,7 +2,7 @@
   max-width: 320px;
   width: 100%;
   margin: 20px auto;
-  gap:10px;
+  gap: 10px;
   max-width: 1280px;
 }
 
@@ -91,7 +91,7 @@
   .default-display-section {
     max-width: 768px;
     width: 100%;
-    
+
     margin: 32px auto;
   }
 
@@ -126,9 +126,9 @@
 @media screen and (min-width: 1200px) {
   .default-display-section {
     margin-top: 32px;
-    max-width: 1200px;
+    max-width: 1217px;
     width: 100%;
-    
+
     margin: 32px auto;
   }
   .about-modal p {
@@ -146,7 +146,7 @@
   }
 
   .galleryContainer_card {
-    max-width: 364px;
+    max-width: 394px;
     height: 634px;
     margin: 0;
   }
@@ -154,9 +154,7 @@
   .default-display_gallery {
     flex-wrap: wrap;
     display: flex;
-    gap: 20px;
-    max-width: 1200px;
-    width: 100%;
+    gap: 17px;
   }
 
   #pagination {

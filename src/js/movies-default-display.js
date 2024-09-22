@@ -5,7 +5,7 @@ import { openModal } from './modal-movie.js';
 const galleryContainer = document.querySelector('.default-display_gallery');
 const photosUrl = `https://image.tmdb.org/t/p/original/`;
 let currentPage = 1;
-const totalPages = 50; // Exemplu pentru pagini multiple
+const totalPages = 50;
 
 const options = {
   method: 'GET',
@@ -16,7 +16,6 @@ const options = {
   },
 };
 
-// Adăugăm maparea genurilor
 const genres = {
   28: 'Acțiune',
   12: 'Aventură',
@@ -39,7 +38,6 @@ const genres = {
   37: 'Western',
 };
 
-// Funcție pentru obținerea trailerului din API-ul TMDb
 async function getMovieTrailer(movieId) {
   try {
     const response = await axios.get(
@@ -61,14 +59,13 @@ async function getMovieTrailer(movieId) {
   }
 }
 
-// Funcție pentru afișarea filmelor din API
 async function displayMovies(page = 1) {
   if (!galleryContainer) {
     console.error('Elementul container al galeriei nu a fost găsit!');
     return;
   }
 
-  galleryContainer.innerHTML = ''; // Golește galeria înainte de afișare
+  galleryContainer.innerHTML = '';
 
   try {
     const response = await axios.get(
@@ -132,7 +129,6 @@ async function displayMovies(page = 1) {
   }
 }
 
-// Generează paginarea și afișează filmele inițial
 document.addEventListener('DOMContentLoaded', function () {
   displayMovies(currentPage); // Afișăm filmele inițial
 });

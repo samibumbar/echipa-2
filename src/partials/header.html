@@ -4,6 +4,8 @@
   <section class="header-section">
     <div class="header-container">
       <div class="header-navigation">
+        <div id="loading-indicator" style="display: none">Loading...</div>
+
         <form class="search-form" id="search-form">
           <input
             class="search-form__input"
@@ -11,8 +13,12 @@
             name="searchQuery"
             autocomplete="off"
             placeholder="Movie search"
+            id="search-input"
           />
-          <button class="search-form__button" type="submit">&#128269;</button>
+
+          <button class="search-form__button" type="submit" id="search-button">
+            &#128269;
+          </button>
         </form>
         <nav class="header-nav">
           <ul class="header-nav__list">
@@ -23,23 +29,22 @@
               <a href="page-2.html">MY LIBRARY</a>
 
               <!-- <button type="button">MY LIBRARY</button> -->
-
             </li>
           </ul>
         </nav>
       </div>
       <div class="logo-container">
         <svg class="header_logo__icon">
-
-<!--           <use href="/images/symbol-defs.svg#icon-sigla_descktop" /> -->
+          <!--           <use href="/images/symbol-defs.svg#icon-sigla_descktop" /> -->
 
           <use href="/images/symbol-defs.svg#icon-sigla_descktop" />
-
         </svg>
         <span class="logo-text">Filmoteka</span>
       </div>
     </div>
   </section>
 </header>
+<div class="movie-grid" id="movie-grid"></div>
 <!-- <script type="module" src="../js/header.js"></script> -->
 <script type="module" src="./js/header.js"></script>
+<script type="module" src="./js/search.js"></script>
