@@ -4,56 +4,184 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page 2</title>
-    <link rel="stylesheet" crossorigin href="/vanilla-app-template/assets/styles-DvPDDfy5.css">
+    <link rel="stylesheet" href="" />
+    <title>My Library</title>
+
+    <!-- Normalizare stiluri/> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+    />
+    <!-- Import fonturi/> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+
+    <!-- <link rel="stylesheet" href="./css/header.css" /> -->
+    <script type="module" crossorigin src="/echipa-2/assets/modulepreload-polyfill-B5Qt9EMX.js"></script>
+    <script type="module" crossorigin src="/echipa-2/assets/vendor-CQ3KiSSb.js"></script>
+    <script type="module" crossorigin src="/echipa-2/assets/watched-queue-8CqmJLOJ.js"></script>
+    <script type="module" crossorigin src="/echipa-2/assets/main-l0sNRNKZ.js"></script>
+    <link rel="stylesheet" crossorigin href="/echipa-2/assets/watched-queue-Dx9zD2jA.css">
+    <link rel="stylesheet" crossorigin href="/echipa-2/assets/page-2-BkoS5qJf.css">
   </head>
+
   <body>
-    <header class="header">
-  <div class="container">
-    <nav class="nav">
-      <a class="nav-logo" href="./index.html" aria-label="Site logo">
-        <svg class="nav-logo-icon" width="100" height="30">
-          <use href="/vanilla-app-template/assets/sprite-E8vg0sBb.svg#logo"></use>
+    <!-- Header Section page-2-->
+
+<header id="my-library">
+  <section class="header-section">
+    <div class="header-container">
+      <nav class="header-nav">
+        <ul class="header-nav__list">
+          <li>
+            <a href="index.html">HOME</a>
+          </li>
+          <li>
+            <a href="page-2.html" class="active">MY LIBRARY</a>
+          </li>
+        </ul>
+        <div class="wrapper">
+          <div class="logo-container-2">
+            <svg class="header_logo__icon">
+              <!-- <use href="../images/symbol-defs.svg#icon-sigla_descktop" /> -->
+              <use href="/echipa-2/images/symbol-defs.svg#icon-sigla_descktop" />
+            </svg>
+            <span class="logo-text-2">Filmoteka</span>
+          </div>
+          <div class="watched-queue-container">
+            <button class="watched">WATCHED</button>
+            <button class="queue">QUEUE</button>
+          </div>
+        </div>
+      </nav>
+      <div class="logo-container">
+        <svg class="header_logo__icon">
+          <use href="/echipa-2/images/symbol-defs.svg#icon-sigla_descktop" />
         </svg>
-      </a>
-      <ul class="nav-list">
-        <li class="nav-item">
-          <a class="nav-link active" href="./page-2.html">Page 2</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link {=$highlight-curr}" href="./page-3.html">Page 3</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
+        <span class="logo-text">Filmoteka</span>
+      </div>
+    </div>
+    <div id="movie-grid" class="movies-container"></div>
+  </section>
 </header>
+
+<!-- VARIANTA 1 -->
+<!-- <header id="my-library">
+  <section class="header-section">
+    <div class="header-container">
+      <nav class="header-nav">
+        <ul class="header-nav__list">
+          <li>
+            <a href="index.html">HOME</a>
+          </li>
+          <li>
+            <a href="#my-library" class="active">MY LIBRARY</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="watched-queue-container">
+        <button class="watched">WATCHED</button>
+        <button class="queue">QUEUE</button>
+      </div>
+      <div class="logo-container">
+        <svg class="header_logo__icon">
+          <use href="./images/symbol-defs.svg#icon-sigla_descktop" />
+        </svg>
+        <span class="logo-text">Filmoteka</span>
+      </div>
+    </div>
+  </section>
+</header> -->
+<!-- <script type="module" src="../js/header.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
 
     <main>
       <div class="container">
-        <h1 class="main-title">
-          <span class="main-title-gradient">Welcome</span> to page 2
-        </h1>
-        <a class="back-link" href="./index.html">Go back</a>
+        
+
+        <section class="watched-queue-section">
+  <div class="movie-grid" id="movie-grid">
+    <div id="movieModal" class="modal is-hidden">
+      <div class="modal-content">
+        <button class="close" id="close-modal-btn">x</button>
+        <div class="modal-contend__wrapper">
+          <div class="wrapper-item">
+            <img id="modal-poster" src="" alt="Movie Poster" />
+          </div>
+          <div class="wrapper-item-2">
+            <h2 id="modal-title">Movie Title</h2>
+            <div class="about-modal">
+              <p id="modal-rating">
+                Rating: <span id="rating-value">7.5</span>
+              </p>
+              <p id="modal-votes">Voturi: <span id="votes-value">1234</span></p>
+              <p id="modal-popularity">
+                Popularitate: <span id="popularity-value">100.0</span>
+              </p>
+            </div>
+            <h3 id="modal-genres">Genuri</h3>
+            <p id="modal-description"></p>
+            <div class="movie-details">
+              <div class="modal-buttons">
+                <button class="add-to-watched" id="add-to-watched">
+                  ADD TO WATCHED
+                </button>
+                <button class="add-to-queue" id="add-to-queue">
+                  ADD TO QUEUE
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
       </div>
     </main>
 
-    <footer class="footer">
-  <div class="container">
-    <p class="footer-desc">
-      Made with ✨ by
-      <a
-        class="footer-link"
-        href="https://goit.global/ua/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        GoIT team
-      </a>
-    </p>
-  </div>
+    <!--Footer Section-->
+<footer>
+  <section>
+    <div class="container">
+      <div class="copy-right-section">
+        <div class="copy-right">
+          <p>&copy;2023 | All Rights Reserved |</p>
+        </div>
+        <div class="copy-wrapper">
+          <p>Developed with</p>
+          <div class="copy-right-icon">
+            <svg class="icon icon-Vector-8-1">
+              <use xlink:href="#icon-Vector-8-1"></use>
+              <symbol id="icon-Vector-8-1" viewBox="0 0 34 32">
+                <path
+                  fill="#B92F2C"
+                  style="fill: var(--color1, #b92f2c)"
+                  d="M17.231 31.705l-2.412-2.412c-8.96-7.926-14.818-13.268-14.818-19.815 0-5.342 4.135-9.477 9.477-9.477 2.929 0 5.858 1.378 7.754 3.618 1.895-2.24 4.825-3.618 7.754-3.618 5.342 0 9.477 4.135 9.477 9.477 0 6.548-5.858 11.889-14.818 19.815l-2.412 2.412z"
+                ></path>
+              </symbol>
+            </svg>
+          </div>
+          <div class="copy-right-students">
+            <p>by</p>
+            <a href="#"> GoIT Students</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </footer>
+
 
   </body>
 </html>
