@@ -1,103 +1,77 @@
-const moviesContainer = document.querySelector('.movies-container');
-const STORAGE_KEY = 'movies';
+import { openModal } from './modal-movie.js';
+import Swal from 'sweetalert2';
 
-  // Functie adaugare in local storage
-  function addToLocalStorage(movie, listType) {
-    let moviesData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
-      watched: [],
-      queue: [],
-    };
+document.addEventListener('DOMContentLoaded', () => {
+  const watchedSectionButton = document.querySelector('.watched');
+  const queueSectionButton = document.querySelector('.queue');
+  const movieGrid = document.getElementById('movie-grid');
 
-    // Verificăm dacă filmul există deja în listă
-    if (
-      !moviesData[listType].some(storedMovie => storedMovie.id === movie.id)
-    ) {
-      moviesData[listType].push(movie);
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(moviesData));
-    } else {
-      alert('Acest film exista deja in lista!');
+  const WATCHED_KEY = 'watchedMovies';
+  const QUEUE_KEY = 'queueMovies';
+
+  if (watchedSectionButton && movieGrid) {
+    watchedSectionButton.addEventListener('click', () => {
+      const watchedMovies = getFromLocalStorage(WATCHED_KEY);
+      displayMovies(watchedMovies, movieGrid, true, false);
+    });
+  } else {
+    console.error('Watched section button or movie grid not found');
+  }
+
+  if (queueSectionButton && movieGrid) {
+    queueSectionButton.addEventListener('click', () => {
+      const queueMovies = getFromLocalStorage(QUEUE_KEY);
+      displayMovies(queueMovies, movieGrid, false, true);
+    });
+  } else {
+    console.error('Queue section button or movie grid not found');
+  }
+
+  // Funcția pentru obținerea filmelor din localStorage
+  function getFromLocalStorage(key) {
+    return JSON.parse(localStorage.getItem(key)) || [];
+  }
+
+  function displayMovies(
+    movies,
+    container,
+    isFromWatched = false,
+    isFromQueue = false
+  ) {
+    container.innerHTML = '';
+
+    if (movies.length === 0) {
+      container.innerHTML = '<p>No movies found.</p>';
+      return;
     }
-  };
 
+    movies.forEach(movie => {
+      const movieCard = document.createElement('div');
+      movieCard.classList.add('movie-card');
+      movieCard.innerHTML = `
+        <img src="${movie.posterUrl}" alt="${movie.title}" />
+        <h3>${movie.title}</h3>
+        <p>${movie.movieGenre}</p>
+        <p>${movie.description}</p>
+      `;
 
-// Functie pentru a lua lista de filme din local storage
-function getMoviesList(listType) {
-  let moviesData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
-    watched: [],
-    queue: [],
-  };
-  return moviesData[listType];
-}
+      movieCard.addEventListener('click', () => {
+        openModal(
+          movie.posterUrl,
+          movie.title,
+          movie.movieGenre,
+          movie.description,
+          null,
+          null,
+          null,
+          null,
+          isFromWatched,
+          isFromQueue,
+          movieCard
+        );
+      });
 
-// Functie pentru afisarea filmelor
-function displayMovies(listType) {
-  const moviesList = getMoviesList(listType);
-
-  moviesList.forEach(movie => {
-    const movieCard = document.createElement('div');
-    movieCard.className = 'movie-card';
-    movieCard.innerHTML = `
-      <img src="movie-imgSrc" width="100%" height="315" class="movie-image"/>
-      <h3 class="movie-title">${movie.title}</h3>
-      <p class="movie-subtitle">${movie.genres} | 2020 </p>
-    `;
-    moviesContainer.appendChild(movieCard);
-  });
-}
-
-
-// // adaugare film in local storage la apasarea butonului watched
-document.addEventListener('click', function (e) {
-  if (e.target && e.target.id === 'add-to-watched') {
-    const selectedMovie = getMovieFromModal();
-    addToLocalStorage(selectedMovie, 'watched');
-  }
-
-  if (e.target && e.target.id === 'add-to-queue') {
-    const selectedMovie = getMovieFromModal();
-    addToLocalStorage(selectedMovie, 'queue');
+      container.appendChild(movieCard);
+    });
   }
 });
-
-
-// afisarea filmelor care au fost vizionate la apasarea butonului Watched din header
-document.addEventListener('click', e => {
-  if (e.target && e.target.className === 'watched') {
-    console.log('buton watched apasat');
-    moviesContainer.innerHTML = ''
-    displayMovies('watched');
-  }
-
-  if (e.target && e.target.className === 'queue') {
-    console.log('buton queue apasat');
-    moviesContainer.innerHTML = '';
-    displayMovies('queue');
-  }
-
-});
-
-// afisarea filmelor care urmeaza sa fie vizionate la apasarea butonului Queue din header
-
-
-function getMovieFromModal() {
-  const title = document.getElementById('modal-title').textContent;
-  const rating = document.getElementById('modal-rating').textContent;
-  const votes = document.getElementById('modal-votes').textContent;
-  const popularity = document.getElementById('modal-popularity').textContent;
-  const genres = document.getElementById('modal-genres').textContent;
-  const description = document.getElementById('modal-description').textContent;
-  const trailer = document.getElementById('modal-trailer').src;
-
-
-  return {
-    id: Date.now(),
-    title,
-    rating,
-    votes,
-    popularity,
-    genres,
-    description,
-    trailer
-  };
-}
-

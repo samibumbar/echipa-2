@@ -1,3 +1,41 @@
 <section class="watched-queue-section">
-        <div class="movies-container"></div>
+  <div class="movie-grid" id="movie-grid">
+    <div id="movieModal" class="modal is-hidden">
+      <div class="modal-content">
+        <button class="close" id="close-modal-btn">x</button>
+        <div class="modal-contend__wrapper">
+          <div class="wrapper-item">
+            <img id="modal-poster" src="" alt="Movie Poster" />
+          </div>
+          <div class="wrapper-item-2">
+            <h2 id="modal-title">Movie Title</h2>
+            <div class="about-modal">
+              <p id="modal-rating">
+                Rating: <span id="rating-value">7.5</span>
+              </p>
+              <p id="modal-votes">Voturi: <span id="votes-value">1234</span></p>
+              <p id="modal-popularity">
+                Popularitate: <span id="popularity-value">100.0</span>
+              </p>
+            </div>
+            <h3 id="modal-genres">Genuri</h3>
+            <p id="modal-description"></p>
+            <div class="movie-details">
+              <div class="modal-buttons">
+                <button class="add-to-watched" id="add-to-watched">
+                  ADD TO WATCHED
+                </button>
+                <button class="add-to-queue" id="add-to-queue">
+                  ADD TO QUEUE
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script type="module" src="./js/watched-queue.js"></script>
