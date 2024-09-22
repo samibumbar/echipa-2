@@ -124,6 +124,27 @@
   fill: var(--white);
   stroke: var(--white);
 }
+#movie-grid {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1280px;
+  gap: 17px;
+  justify-content: center;
+}
+.movie-card {
+  width: 394px;
+}
+.movie-card h3,
+.movie-card p {
+  font-family: roboto;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 12px;
+  line-height: 16px;
+}
 
 /* Tablet styling */
 @media screen and (min-width: 480px) and (max-width: 767px) {
@@ -131,7 +152,17 @@
     min-height: 222px;
     /* background-image: url('/images/desktop/background-red-1x.jpg'); */
   }
-
+  #movie-grid {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 767px;
+    gap: 17px;
+    justify-content: center;
+  }
+  .movie-card {
+    max-width: 394px;
+  }
   /*   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
