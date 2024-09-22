@@ -1,35 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-   
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/echipa-2/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Filmoteka</title>
 
-    <!-- Normalizare stiluri/> -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
-    />
-    <!-- Import fonturi/> -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-      rel="stylesheet"
-    />
-
     <script type="module" crossorigin src="/echipa-2/index.js"></script>
-    <link rel="modulepreload" crossorigin href="/echipa-2/assets/vendor-BaZnZOwH.js">
-    <link rel="modulepreload" crossorigin href="/echipa-2/assets/modal-movie-BMDh4blJ.js">
-    <link rel="modulepreload" crossorigin href="/echipa-2/assets/main-CyhdLG0z.js">
-    <link rel="modulepreload" crossorigin href="/echipa-2/assets/search-D9A1WaXT.js">
-    <link rel="stylesheet" crossorigin href="/echipa-2/assets/main-D3qLO_GP.css">
+    <link rel="modulepreload" crossorigin href="/echipa-2/assets/modulepreload-polyfill-B5Qt9EMX.js">
+    <link rel="modulepreload" crossorigin href="/echipa-2/assets/vendor-BNe1RqNb.js">
+    <link rel="modulepreload" crossorigin href="/echipa-2/assets/watched-queue-C_2-jBIV.js">
+    <link rel="stylesheet" crossorigin href="/echipa-2/assets/watched-queue-Dx9zD2jA.css">
   </head>
 
   <body>
-    <!-- <script type="module" src="js/watched-queue.js"></script> -->
     <main>
       <!-- Header Section -->
 
@@ -67,12 +51,15 @@
         </nav>
       </div>
       <div class="logo-container">
-        <svg class="header_logo__icon">
-          <!--           <use href="/images/symbol-defs.svg#icon-sigla_descktop" /> -->
+        <div class="logo-container__item">
+          <svg class="header_logo__icon">
+            <!--           <use href="/images/symbol-defs.svg#icon-sigla_descktop" /> -->
 
-          <use href="/echipa-2/images/symbol-defs.svg#icon-sigla_descktop" />
-        </svg>
-        <span class="logo-text">Filmoteka</span>
+            <use href="/echipa-2/images/symbol-defs.svg#icon-sigla_descktop" />
+          </svg>
+          <span class="logo-text">Filmoteka</span>
+        </div>
+        <button class="logout-btn" id="logout-btn">Log-out</button>
       </div>
     </div>
     <div id="movie-grid" class="movies-container">
@@ -138,30 +125,9 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
-      <!-- Loads the specified .html file -->
       
       
     </main>
-    <!--Modal-movie Section
-<div id="movieModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <div class="modal-contend__wrapper">
-      <div class="wrapper-item">
-        <img id="modal-poster" src="" alt="Movie Poster" />
-      </div>
-      <div class="wrapper-item-2">
-        <h2 id="modal-title"></h2>
-        
-        <h3 id="modal-genres"></h3>
-        
-        <p id="modal-description"></p>
-      </div>
-    </div>
-  </div>
-</div>
--->
-
     <!--Footer Section-->
 <footer>
   <section>
@@ -194,6 +160,9 @@
   </section>
 </footer>
 
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
 
   </body>
 </html>
