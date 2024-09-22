@@ -103,7 +103,7 @@
 
 .logo-container {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   gap: 16px;
   margin-left: 32px;
@@ -116,6 +116,26 @@
   line-height: 1.2;
   color: var(--white);
   text-align: center;
+}
+.logout-btn {
+  padding: 10px 20px;
+  background-color: rgba(136, 135, 135, 0.64);
+  border-radius: 50px;
+  border: none;
+  margin-right: 50px;
+  margin-top: 50px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Efect de tranziție */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Umbră ușoară */
+}
+
+/* Efect la hover */
+.logout-btn:hover {
+  background-color: red; /* Schimbare de culoare la hover */
+  transform: translateY(-5px); /* Efect de ridicare la hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  border: 1px white; /* Umbră mai pronunțată la hover */
 }
 
 .header_logo__icon {

@@ -1,5 +1,39 @@
 // 'use strict';
+import { initializeApp } from 'firebase/app';
+import { getAuth, signOut, onAuthStateChanged } from 'firebase/auth';
 
+// Configurația Firebase
+const firebaseConfig = {
+  apiKey: 'AIzaSyCw7VkecxwaMQ6UI5ymBFqf54FHRi8_Fkc',
+  authDomain: 'filmoteka-ef771.firebaseapp.com',
+  projectId: 'filmoteka-ef771',
+  storageBucket: 'filmoteka-ef771.appspot.com',
+  messagingSenderId: '731162565659',
+  appId: '1:731162565659:web:da75ae92afc254876bacbe',
+  measurementId: 'G-13YE8DDH34',
+};
+
+// Inițializează aplicația Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+// Verifică dacă utilizatorul este autentificat
+onAuthStateChanged(auth, user => {
+  if (!user) {
+    window.location.href = '/login.html'; // Redirecționare la login dacă nu ești autentificat
+  }
+});
+
+// Deconectare utilizator
+document.getElementById('logout-btn').addEventListener('click', () => {
+  signOut(auth)
+    .then(() => {
+      window.location.href = '/login.html'; // Redirecționare la pagina de logare
+    })
+    .catch(error => {
+      console.error('Eroare la deconectare:', error);
+    });
+});
 // const backgroundImages = {
 //   desktop: [
 //     '/echipa-2/images/desktop/background-red-1x.jpg',

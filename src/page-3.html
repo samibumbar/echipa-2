@@ -2,27 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page 3</title>
-    <link rel="stylesheet" href="./css/styles.css" />
+    <title>Pagina Protejată</title>
+    <link rel="stylesheet" href="./login.css" />
   </head>
   <body>
-    <load
-      src="./partials/header.html"
-      icon-path="./img/sprite.svg#logo"
-      highlight-curr="active"
-    />
+    <header id="protected-page">
+      <!-- Adaugă ID pentru a controla afișarea -->
+      <h1>Bun venit la pagina protejată!</h1>
+      <button id="logout-btn">Deconectare</button>
+    </header>
 
-    <main>
-      <div class="container">
-        <h1 class="main-title">
-          <span class="main-title-gradient">Welcome</span> to page 3
-        </h1>
-        <load src="./partials/back-link.html" />
-      </div>
-    </main>
-
-    <load src="./partials/footer.html" />
+    <script type="module" src="./main.js"></script>
   </body>
 </html>
