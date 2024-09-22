@@ -1,4 +1,5 @@
-// Funcția openModal care afișează trailerul sau posterul, ratingul, voturile și popularitatea
+import Swal from 'sweetalert2';
+
 export function openModal(
   posterUrl,
   title,
@@ -7,7 +8,10 @@ export function openModal(
   trailerUrl = null,
   rating = null,
   voteCount = null,
-  popularity = null
+  popularity = null,
+  isFromWatched = false,
+  isFromQueue = false,
+  movieCardElement = null
 ) {
   const modal = document.getElementById('movieModal');
   const modalPoster = document.getElementById('modal-poster');
@@ -17,6 +21,8 @@ export function openModal(
   const modalRating = document.getElementById('modal-rating');
   const modalVotes = document.getElementById('modal-votes');
   const modalPopularity = document.getElementById('modal-popularity');
+  const watchedButton = document.getElementById('add-to-watched');
+  const queueButton = document.getElementById('add-to-queue');
 
   if (
     !modal ||
@@ -26,27 +32,26 @@ export function openModal(
     !modalDescription ||
     !modalRating ||
     !modalVotes ||
-    !modalPopularity
+    !modalPopularity ||
+    !watchedButton ||
+    !queueButton
   ) {
-    console.error('Elementele din modal nu au fost găsite.');
+    console.error('Modal elements not found.');
     return;
   }
 
   // Setăm conținutul în modal
   modalTitle.textContent = title;
-  modalGenres.textContent = `Genuri: ${movieGenre}`;
+  modalGenres.textContent = `Genres: ${movieGenre}`;
   modalDescription.textContent = description;
-  modalRating.textContent = rating
-    ? `Rating: ${rating}`
-    : 'Rating indisponibil';
+  modalRating.textContent = rating ? `Rating: ${rating}` : 'Rating unavailable';
   modalVotes.textContent = voteCount
-    ? `${voteCount} voturi`
-    : 'Voturi indisponibile';
+    ? `${voteCount} votes`
+    : 'Votes unavailable';
   modalPopularity.textContent = popularity
-    ? `Popularitate: ${popularity}`
-    : 'Popularitate indisponibilă';
+    ? `Popularity: ${popularity}`
+    : 'Popularity unavailable';
 
-  // Dacă există un trailer, adăugăm un iframe, altfel afișăm posterul
   if (trailerUrl) {
     modalPoster.outerHTML = `<iframe id="modal-trailer" width="100%" height="315" src="${trailerUrl}" 
       frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
@@ -57,13 +62,52 @@ export function openModal(
   modal.classList.remove('is-hidden');
   modal.classList.add('is-visible');
 
-  // Adăugăm ascultător pentru tasta Escape pentru a închide modalul
+  if (isFromWatched) {
+    watchedButton.textContent = 'Remove from WATCHED';
+    watchedButton.onclick = () => {
+      removeFromLocalStorage('watchedMovies', title);
+      if (movieCardElement) movieCardElement.remove();
+      Swal.fire(`${title} has been removed from WATCHED!`).then(() => {
+        closeModal();
+      });
+    };
+  } else if (isFromQueue) {
+    queueButton.textContent = 'Remove from QUEUE';
+    queueButton.onclick = () => {
+      removeFromLocalStorage('queueMovies', title);
+      if (movieCardElement) movieCardElement.remove();
+      Swal.fire(`${title} has been removed from QUEUE!`).then(() => {
+        closeModal();
+      });
+    };
+  } else {
+    watchedButton.textContent = 'Add to WATCHED';
+    watchedButton.onclick = () => {
+      saveToLocalStorage('watchedMovies', {
+        title,
+        posterUrl,
+        movieGenre,
+        description,
+      });
+      Swal.fire(`${title} has been added to WATCHED!`);
+    };
+
+    queueButton.textContent = 'Add to QUEUE';
+    queueButton.onclick = () => {
+      saveToLocalStorage('queueMovies', {
+        title,
+        posterUrl,
+        movieGenre,
+        description,
+      });
+      Swal.fire(`${title} has been added to QUEUE!`);
+    };
+  }
+
   document.addEventListener('keydown', handleEscapeKey);
 }
 
-// Funcția closeModal care închide modalul
 export function closeModal() {
-  console.log('Închidere modal');
   const modal = document.getElementById('movieModal');
   const modalTrailer = document.getElementById('modal-trailer');
 
@@ -77,6 +121,22 @@ export function closeModal() {
   modal.classList.add('is-hidden');
 
   document.removeEventListener('keydown', handleEscapeKey);
+}
+
+function saveToLocalStorage(key, movie) {
+  const storedMovies = JSON.parse(localStorage.getItem(key)) || [];
+  if (!storedMovies.find(storedMovie => storedMovie.title === movie.title)) {
+    storedMovies.push(movie);
+    localStorage.setItem(key, JSON.stringify(storedMovies));
+  }
+}
+
+function removeFromLocalStorage(key, movieTitle) {
+  const storedMovies = JSON.parse(localStorage.getItem(key)) || [];
+  const updatedMovies = storedMovies.filter(
+    movie => movie.title !== movieTitle
+  );
+  localStorage.setItem(key, JSON.stringify(updatedMovies));
 }
 
 function handleEscapeKey(event) {
