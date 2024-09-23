@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function createMovieCard(movie) {
     const movieCard = document.createElement('div');
-    movieCard.classList.add('movie-card');
+    movieCard.classList.add('galleryContainer_card');
 
     const posterUrl = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
     const title = movie.title;
@@ -131,9 +131,9 @@ document.addEventListener('DOMContentLoaded', function () {
       .join(', ');
 
     movieCard.innerHTML = `
-      <img src="${posterUrl}" alt="${title}" style="max-width: 100%; height: auto;">
-      <h3>${title}</h3>
-      <h3 class="span">Gen: ${movieGenres}</h3>
+      <img class="galleryContainer_image" src="${posterUrl}" alt="${title}" style="max-width: 100%; height: auto;>
+      <h3 class="galleryContainer_title">${title}</h3>
+      <h3 class="galleryContainer_subtitle"> ${movieGenres}</h3>
     `;
 
     return movieCard;
