@@ -43,8 +43,8 @@ const options = {
   right: 'unset',
   left: '32px',
   time: '0.5s',
-  mixColor: '#f0f0f0',
-  backgroundColor: '#fff',
+  mixColor: '#fff', // Setează alb pentru a preveni interferența cu culorile
+  backgroundColor: '#fff', // Fundal în light mode
   buttonColorDark: '#100f2c',
   buttonColorLight: '#fff',
   saveInCookies: true,
