@@ -49,10 +49,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const movieCard = document.createElement('div');
       movieCard.classList.add('movie-card');
       movieCard.innerHTML = `
-        <img src="${movie.posterUrl}" alt="${movie.title}" />
-        <h3>${movie.title}</h3>
-        <p>${movie.movieGenre}</p>
-        <p>${movie.description}</p>
+
+        <img src="${movie.posterUrl}" alt="${movie.title}" class='galleryContainer_image'/>
+        <h3 class="galleryContainer_title">${movie.title}</h3>
+        <p class='galleryContainer_subtitle'>${movie.movieGenre} | ${movie.release_date}</p>
+
       `;
 
       movieCard.addEventListener('click', () => {

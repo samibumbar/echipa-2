@@ -123,8 +123,8 @@
 
 .logo-container {
 
-  
-   display: block;
+   display: flex;
+  justify-content:flex-start;
   margin-left: 32px;
   margin-bottom: 32px;
 }
@@ -145,7 +145,7 @@
 }
 
 /* Tablet styling */
-@media screen and (min-width: 480px) and (max-width: 767px) {
+/* @media screen and (min-width: 767px) and (max-width: 1024px) {
   .header-container {
     min-height: 222px;
     flex-direction: column;
@@ -195,9 +195,10 @@
     width: 40px;
     height: 40px;
   }
-}
+} */
 
-@media screen and (max-width: 479px) {
+/* Mobile styling */
+@media screen and (max-width: 767px) {
   .header-container {
     min-height: 460px;
     border-radius: 10px;

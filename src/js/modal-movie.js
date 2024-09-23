@@ -53,7 +53,7 @@ export function openModal(
     : 'Popularity unavailable';
 
   if (trailerUrl) {
-    modalPoster.outerHTML = `<iframe id="modal-trailer" width="100%" height="315" src="${trailerUrl}" 
+    modalPoster.outerHTML = `<iframe id="modal-trailer" width="100%" " src="${trailerUrl}" 
       frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
   } else {
     modalPoster.src = posterUrl;
