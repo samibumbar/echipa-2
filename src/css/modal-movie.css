@@ -3,13 +3,54 @@
 .modal {
   position: fixed;
   top: 10%;
-  left: 15%;
+  left: 30%;
   background-color: white;
-  width: 1000px;
-  height: 600px;
+  width: 806px;
+  height: 558px;
   padding: 10px;
   border-radius: 5px;
 }
+
+.modal-title {
+  font-family: Roboto;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 35.16px;
+  text-align: left;
+}
+
+.movies-container {
+  margin-top: 300px;
+  display: flex;           
+  flex-wrap: wrap;         
+  justify-content: center; 
+  gap: 20px;               
+  width: 100%;
+  margin: 20px auto;         
+}
+
+.movie-poster {
+  max-width: 395px;
+  height: 574px;
+  border-radius: 5px;
+}
+
+#modal-poster {
+  max-width: 375px;
+  height: 478px;
+  border-radius: 5px;
+}
+
+
+.about-modal {
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  text-align: left;
+  color: #8C8C8C;
+}
+
 .is-hidden {
   display: none;
 }
