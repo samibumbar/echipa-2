@@ -41,6 +41,12 @@
   border-radius: 5px;
 }
 
+#modal-trailer {
+  max-width: 375px;
+  height: 478px;
+  margin-left: 10px;
+}
+
 
 .about-modal {
   font-family: Roboto;
@@ -77,7 +83,7 @@
   display: flex;
   justify-content: flex-end;
   font-size: 30px;
-  padding-right: 30px;
+  padding-right: 16px;
   background: white;
   border: none;
   cursor: pointer;
