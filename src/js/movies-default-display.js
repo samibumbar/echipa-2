@@ -6,6 +6,7 @@ const galleryContainer = document.querySelector('.default-display_gallery');
 const photosUrl = `https://image.tmdb.org/t/p/original/`;
 let currentPage = 1;
 const totalPages = 50;
+let page = 1
 
 const options = {
   method: 'GET',
@@ -130,5 +131,94 @@ async function displayMovies(page = 1) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-  displayMovies(currentPage); // Afișăm filmele inițial
-});
+  displayMovies(page); // Afișăm filmele inițial
+    const paginationDiv =  
+    document.getElementById("pagination"); 
+    const itemsPerPage = 1; 
+    let totalItems = 1000;
+  
+    function generateContent(page) { 
+      document.querySelector(`.default-display_gallery`).innerHTML='';
+          
+      for (let i = (page - 1) * itemsPerPage + 1; 
+        i <= page * itemsPerPage; i++) { 
+        displayMovies(page) 
+        } 
+      } 
+    
+      function generatePagination() {
+        const totalPages = Math.ceil(totalItems / itemsPerPage); 
+        paginationDiv.innerHTML = "";
+        const prevArrow = document.createElement("span"); 
+        prevArrow.className = "arrow"; 
+        prevArrow.textContent = "←"; 
+        prevArrow.addEventListener("click", function () { 
+          
+          if (page > 1) {     
+            page--; 
+            generatePagination();
+            generateContent(page);    
+          } 
+          });  
+          
+          paginationDiv.appendChild(prevArrow); 
+          
+          let maxValue = Math.max(totalPages);
+          
+          for (let i = 1; i <= totalPages; i++) {     
+            const link = document.createElement("a");
+            link.href = "#"; 
+            link.textContent = [i];
+            if (link.textContent > page + 3 || link.textContent < page - 4) {
+                link.classList.add('hidden')
+  
+                }  
+            if (i >= page + 3  ) {
+                  let dots = document.createElement("p");
+                  dots.textContent = `• • •`;
+                  dots.classList.add('dots')
+                 link.textContent= [i] + '\xa0\xa0\xa0\xa0\xa0\xa0\xa0'  + dots.textContent;
+                 if ( i > 999 ) {
+                  link.classList.remove('hidden')
+                  link.textContent = '1000'
+                  
+                }
+                  }
+            
+            link.addEventListener('click', pagination()) 
+            function pagination(){
+          
+            if (i === page) { 
+              link.classList.add("active"); }
+          
+            }
+                
+                // document.querySelector('.dot').style.visibility='visible'
+  
+            link.addEventListener("click", function () {  
+              page = i; 
+              generateContent(page); 
+              generatePagination(); 
+            }); 
+    
+            paginationDiv.appendChild(link); 
+          } 
+          
+      
+  
+          const nextArrow = document.createElement("span"); 
+          nextArrow.className = "arrow"; 
+          nextArrow.textContent = "→"; 
+          nextArrow.addEventListener("click", function () { 
+              if (page < totalPages) {
+                  page++
+                  generateContent(page);  
+                  generatePagination(); 
+              } 
+             
+          }); 
+          paginationDiv.appendChild(nextArrow); 
+      } 
+     
+      generatePagination(); 
+  });
