@@ -38,22 +38,44 @@ document.addEventListener('click', function (e) {
   }
 });
 
-const options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: '#fff', // Setează alb pentru a preveni interferența cu culorile
-  backgroundColor: '#fff', // Fundal în light mode
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: false,
-};
+document.addEventListener('DOMContentLoaded', function () {
+  const options = {
+    bottom: '64px',
+    right: 'unset',
+    left: '32px',
+    time: '0.5s',
+    mixColor: '#fff',
+    backgroundColor: '#fff',
+    buttonColorDark: '#100f2c',
+    buttonColorLight: '#fff',
+    saveInCookies: false,
+    label: '🌓',
+    autoMatchOsTheme: true,
+  };
 
-const darkmode = new Darkmode(options);
-darkmode.showWidget();
+  const darkmode = new Darkmode(options);
+  darkmode.showWidget();
+
+  // Funcție pentru a salva preferința temei în localStorage
+  function saveDarkModePreference(isDarkMode) {
+    localStorage.setItem('darkmode', isDarkMode ? 'enabled' : 'disabled');
+  }
+
+  // Verifică localStorage și aplică tema corect la încărcarea paginii
+  if (localStorage.getItem('darkmode') === 'enabled') {
+    if (!darkmode.isActivated()) {
+      darkmode.toggle(); // Activează dark mode dacă a fost activat anterior
+    }
+  }
+
+  // Setare eveniment click pe widget pentru a salva preferința
+  document
+    .querySelector('.darkmode-toggle')
+    .addEventListener('click', function () {
+      const isDarkMode = darkmode.isActivated();
+      saveDarkModePreference(isDarkMode);
+    });
+});
 
 // document.getElementById('logout-btn').addEventListener('click', () => {
 //   signOut(auth)

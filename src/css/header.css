@@ -21,8 +21,11 @@
   isolation: isolate;
 }
 
-.darkmode--activated header {
-  background-color: #000;
+.darkmode-toggle {
+  position: fixed;
+  z-index: 9999;
+  bottom: 64px;
+  left: 32px;
 }
 /* @media (min-device-pixel-ratio: 2),
   (min-resolution: 192dpi),
