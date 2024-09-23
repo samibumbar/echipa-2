@@ -1,0 +1,135 @@
+:root {
+  color-scheme: light dark;
+}
+body {
+  height: 100vh;
+  background-image: url('/images/desktop/login-bg.jpg');
+  background-size: cover;
+  background-position: top;
+}
+
+.container-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 520px;
+}
+
+/* Efect de fade in și fade out */
+.form-hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out, visibility 0s 0.5s;
+}
+
+.form-visible {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease-in-out, visibility 0s;
+}
+
+.login-form {
+  margin-top: 100px;
+  min-height: 520px;
+  border-radius: 50px;
+  width: 500px;
+  background-color: rgba(136, 135, 135, 0.14);
+  backdrop-filter: blur(10px);
+  padding: 20px 50px;
+  display: flex;
+  flex-direction: column;
+
+  gap: 30px;
+  align-items: center;
+}
+
+.register-form {
+  background-color: rgba(136, 135, 135, 0.64);
+  border-radius: 50px;
+  max-width: 400px;
+  padding: 70px;
+  margin-top: 60px;
+}
+
+.register-form h3 {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.register-form label {
+  padding-bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
+.go a,
+.fb a {
+  cursor: pointer;
+}
+.register-form input {
+  width: 250px;
+  padding: 8px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+form * {
+  color: white;
+  outline: none;
+  border: none;
+}
+
+.login-form h3 {
+  font-size: 44px;
+  display: flex;
+  justify-content: center;
+}
+
+.register-form label,
+.login-form label {
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.social {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+
+.login-form input {
+  padding: 8px 50px;
+  border-radius: 5px;
+}
+
+.login-btn {
+  padding: 10px 100px;
+  background-color: #0b5c9b;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+/* Style pentru loader */
+#loader {
+  border: 8px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 8px solid #3498db;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+  display: none; /* Inițial ascuns */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

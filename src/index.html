@@ -1,41 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-   
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Filmoteka</title>
 
-    <!-- Normalizare stiluri/> -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
-    />
-    <!-- Import fonturi/> -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-      rel="stylesheet"
-    />
-
     <link rel="stylesheet" href="./index.css" />
   </head>
 
   <body>
-    <!-- <script type="module" src="js/watched-queue.js"></script> -->
     <main>
       <load src="./partials/header.html" />
       <load src="./partials/movies-default-display.html" />
-      <!-- Loads the specified .html file -->
       <load src="./partials/vite-promo.html" />
       <load src="./partials/badges.html" />
     </main>
-    <load src="./partials/modal-movie.html" />
     <load src="./partials/footer.html" />
 
-    <script type="module" src="main.js"></script>
-    <script type="module" src="js/watched-queue.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+
+    <script type="module">
+      import { initializeApp } from 'firebase/app';
+      import { getAuth, onAuthStateChanged } from 'firebase/auth';
+
+      // Configurația Firebase
+      const firebaseConfig = {
+        apiKey: 'AIzaSyCw7VkecxwaMQ6UI5ymBFqf54FHRi8_Fkc',
+        authDomain: 'filmoteka-ef771.firebaseapp.com',
+        projectId: 'filmoteka-ef771',
+        storageBucket: 'filmoteka-ef771.appspot.com',
+        messagingSenderId: '731162565659',
+        appId: '1:731162565659:web:da75ae92afc254876bacbe',
+        measurementId: 'G-13YE8DDH34',
+      };
+
+      // Inițializează aplicația Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+      // Verifică dacă utilizatorul este autentificat
+      onAuthStateChanged(auth, user => {
+        if (!user) {
+          // Dacă nu este autentificat, redirecționează la pagina de logare
+          window.location.href = '/page-3.html';
+        }
+      });
+    </script>
   </body>
 </html>
