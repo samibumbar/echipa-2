@@ -49,10 +49,16 @@ document.addEventListener('DOMContentLoaded', () => {
       const movieCard = document.createElement('div');
       movieCard.classList.add('movie-card');
       movieCard.innerHTML = `
+<<<<<<< Updated upstream
 
 <img src="${movie.posterUrl}" alt="${movie.title}" class='galleryContainer_image'/>
         <h3 class="movie-title">${movie.title}</h3>
         <p class='movie-description'>${movie.movieGenre} | ${movie.release_date}</p>
+=======
+        <img src="${movie.posterUrl}" alt="${movie.title}" class='galleryContainer_image'/>
+        <h3 class="galleryContainer_title">${movie.title}</h3>
+        <p class='galleryContainer_subtitle'>${movie.movieGenre} | ${movie.release_date}</p>
+>>>>>>> Stashed changes
       `;
 
       movieCard.addEventListener('click', () => {
