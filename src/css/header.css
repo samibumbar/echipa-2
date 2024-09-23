@@ -21,9 +21,11 @@
   isolation: isolate;
 }
 
-.darkmode--activated header {
-  background-color: #000;
+
+.darkmode-toggle {
+  z-index: 9999;
 }
+
 /* @media (min-device-pixel-ratio: 2),
   (min-resolution: 192dpi),
   (min-resolution: 2dppx) {
@@ -157,15 +159,6 @@
   gap: 25px;
   justify-content: center;
 }
-
-header {
-  background-blend-mode: normal !important; /* Previne amestecul dintre imagine și fundal */
-}
-
-.darkmode--activated header {
-  background-color: transparent !important; /* Asigură transparență pentru a nu schimba aspectul imaginii */
-}
-
 
 /* .movie-card {
   max-width: 395px;
