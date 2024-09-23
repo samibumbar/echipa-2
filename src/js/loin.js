@@ -48,7 +48,7 @@ document.getElementById('login-btn').addEventListener('click', event => {
     .then(userCredential => {
       Swal.fire('Logare reușită!', 'Veți fi redirecționat.', 'success');
       setTimeout(() => {
-        window.location.href = '../index.html';
+        window.location.href = '/echipa-2/index.html';
       }, 2000);
     })
     .catch(error => {
@@ -82,6 +82,6 @@ document.getElementById('register-btn').addEventListener('click', event => {
 // Verificare a autentificării
 onAuthStateChanged(auth, user => {
   if (user) {
-    window.location.href = '../index.html';
+    window.location.href = '/echipa-2/index.html';
   }
 });
