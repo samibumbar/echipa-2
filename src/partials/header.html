@@ -4,8 +4,6 @@
   <section class="header-section">
     <div class="header-container">
       <div class="header-navigation">
-        <div id="loading-indicator" style="display: none">Loading...</div>
-
         <form class="search-form" id="search-form">
           <input
             class="search-form__input"
@@ -33,6 +31,11 @@
           </ul>
         </nav>
       </div>
+      <div id="error-message" class="error-message"></div>
+
+      <div class="loading-header" id="loading-indicator" style="display: none">
+        Loading...Please Wait!
+      </div>
       <div class="logo-container">
         <div class="logo-container__item">
           <svg class="header_logo__icon">
@@ -53,5 +56,6 @@
 </header>
 <div class="movie-grid" id="movie-grid"></div>
 <!-- <script type="module" src="../js/header.js"></script> -->
-<script type="module" src="./js/header.js"></script>
-<script type="module" src="./js/search.js"></script>
+
+<script type="module" src="./js/header.js" defer></script>
+<script type="module" src="./js/search.js" defer></script>
