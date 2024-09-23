@@ -6,4 +6,4 @@ import{i as T,g as q,o as H,b as B,D as A,S as p}from"./vendor-6YE5UYdo.js";cons
         <p class='galleryContainer_subtitle'>${n.movieGenre} | ${n.release_date}</p>
 
       `,d.addEventListener("click",()=>{Q(n.posterUrl,n.title,n.movieGenre,n.description,null,null,null,null,b,i,d)}),u.appendChild(d)})}});export{Q as o};
-//# sourceMappingURL=watched-queue-BmrjlwPb.js.map
+//# sourceMappingURL=watched-queue-DSl4JfjJ.js.map
