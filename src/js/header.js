@@ -38,44 +38,41 @@ document.addEventListener('click', function (e) {
   }
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-  const options = {
-    bottom: '64px',
-    right: 'unset',
-    left: '32px',
-    time: '0.5s',
-    mixColor: '#fff',
-    backgroundColor: '#fff',
-    buttonColorDark: '#100f2c',
-    buttonColorLight: '#fff',
-    saveInCookies: false,
-    label: '🌓',
-    autoMatchOsTheme: true,
-  };
+const options = {
+  bottom: '64px', // default: '32px'
+  right: 'unset', // default: '32px'
+  left: '32px', // default: 'unset'
+  time: '0.5s', // default: '0.3s'
+  mixColor: '#fff', // default: '#fff'
+  backgroundColor: '#fff', // default: '#fff'
+  buttonColorDark: '#100f2c', // default: '#100f2c'
+  buttonColorLight: '#fff', // default: '#fff'
+  saveInCookies: true, // default: true,
+  label: '🌓', // default: ''
+  autoMatchOsTheme: true, // default: true
+};
 
-  const darkmode = new Darkmode(options);
-  darkmode.showWidget();
+const darkmode = new Darkmode(options);
+darkmode.showWidget();
 
-  // Funcție pentru a salva preferința temei în localStorage
-  function saveDarkModePreference(isDarkMode) {
-    localStorage.setItem('darkmode', isDarkMode ? 'enabled' : 'disabled');
-  }
+// Funcție pentru a salva preferința temei în localStorage
+function saveDarkModePreference(isDarkMode) {
+  localStorage.setItem('darkmode', isDarkMode ? 'enabled' : 'disabled');
+}
 
-  // Verifică localStorage și aplică tema corect la încărcarea paginii
-  if (localStorage.getItem('darkmode') === 'enabled') {
-    if (!darkmode.isActivated()) {
-      darkmode.toggle(); // Activează dark mode dacă a fost activat anterior
-    }
-  }
+document
+  .querySelector('.darkmode-toggle')
+  .addEventListener('click', function () {
+    const isDarkMode = darkmode.isActivated();
+    saveDarkModePreference(isDarkMode);
+  });
 
-  // Setare eveniment click pe widget pentru a salva preferința
-  document
-    .querySelector('.darkmode-toggle')
-    .addEventListener('click', function () {
-      const isDarkMode = darkmode.isActivated();
-      saveDarkModePreference(isDarkMode);
-    });
-});
+// Aplică tema pe baza valorii din localStorage la fiecare încărcare de pagină
+if (localStorage.getItem('darkmode') === 'enabled') {
+  const darkmode = new Darkmode();
+  darkmode.toggle(); 
+}
+
 
 // document.getElementById('logout-btn').addEventListener('click', () => {
 //   signOut(auth)
