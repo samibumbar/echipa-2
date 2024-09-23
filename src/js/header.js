@@ -34,6 +34,9 @@ document.getElementById('logout-btn').addEventListener('click', () => {
       console.error('Eroare la deconectare:', error);
     });
 });
+
+
+
 // const backgroundImages = {
 
 //   desktop: [
