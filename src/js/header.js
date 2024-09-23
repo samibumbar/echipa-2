@@ -34,29 +34,12 @@ document.getElementById('logout-btn').addEventListener('click', () => {
       console.error('Eroare la deconectare:', error);
     });
 });
-// const backgroundImages = {
 
-//   desktop: [
-//     '/echipa-2/images/desktop/background-red-1x.jpg',
-//     '/echipa-2/images/desktop/background-orange-1x.jpg',
-//     '/echipa-2/images/desktop/background-yellow-1x.jpg',
-//   ],
-//   tablet: [
-//     '/echipa-2/images/tablet/background-red-1x.jpg',
-//     '/echipa-2/images/tablet/background-orange-1x.jpg',
-//     '/echipa-2/images/tablet/background-yellow-1x.jpg',
-//   ],
-//   mobile: [
-//     '/echipa-2/images/mobile/bgd-mobil-red-1x.jpg',
-//     '/echipa-2/images/mobile/bgd-mobil-orange-1x.jpg',
-//     '/echipa-2/images/mobile/bgd-mobil-yellow-1x.jpg',
-//   ],
-// };
 document.addEventListener('click', function (e) {
   if (e.target && e.target.id === 'logout-btn') {
     signOut(auth)
       .then(() => {
-        window.location.href = '/login.html'; // Redirecționare la pagina de logare
+        window.location.href = '/page-3.html'; // Redirecționare la pagina de logare
       })
       .catch(error => {
         console.error('Eroare la deconectare:', error);
@@ -80,32 +63,21 @@ const options = {
 
 const darkmode = new Darkmode(options);
 darkmode.showWidget();
-
-// document.getElementById('logout-btn').addEventListener('click', () => {
-//   signOut(auth)
-//     .then(() => {
-//       window.location.href = '/login.html'; // Redirecționare la pagina de logare
-//     })
-//     .catch(error => {
-//       console.error('Eroare la deconectare:', error);
-//     });
-// });
-
 const backgroundImages = {
   desktop: [
-    './images/desktop/background-red-1x.jpg',
-    './images/desktop/background-orange-1x.jpg',
-    './images/desktop/background-yellow-1x.jpg',
+    '/images/desktop/background-red-1x.jpg',
+    '/images/desktop/background-orange-1x.jpg',
+    '/images/desktop/background-yellow-1x.jpg',
   ],
   tablet: [
-    './images/tablet/background-red-1x.jpg',
-    './images/tablet/background-orange-1x.jpg',
-    './images/tablet/background-yellow-1x.jpg',
+    '/images/tablet/background-red-1x.jpg',
+    '/images/tablet/background-orange-1x.jpg',
+    '/images/tablet/background-yellow-1x.jpg',
   ],
   mobile: [
-    './images/mobile/bgd-mobil-red-1x.jpg',
-    './images/mobile/bgd-mobil-orange-1x.jpg',
-    './images/mobile/bgd-mobil-yellow-1x.jpg',
+    '/images/mobile/bgd-mobil-red-1x.jpg',
+    '/images/mobile/bgd-mobil-orange-1x.jpg',
+    '/images/mobile/bgd-mobil-yellow-1x.jpg',
   ],
 };
 
