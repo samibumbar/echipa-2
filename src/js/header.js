@@ -1,6 +1,7 @@
 // 'use strict';
 import { initializeApp } from 'firebase/app';
 import { getAuth, signOut, onAuthStateChanged } from 'firebase/auth';
+import Darkmode from 'darkmode-js';
 
 // Configurația Firebase
 const firebaseConfig = {
@@ -55,7 +56,7 @@ const backgroundImages = {
   ],
 };
 document.addEventListener('click', function (e) {
-  if(e.target && e.target.id === 'logout-btn') {
+  if (e.target && e.target.id === 'logout-btn') {
     signOut(auth)
       .then(() => {
         window.location.href = '/login.html'; // Redirecționare la pagina de logare
@@ -66,37 +67,22 @@ document.addEventListener('click', function (e) {
   }
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  const darkModeToggle = document.getElementById('darkmode-toogle');
-  const body = document.body;
+const options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: '#fff', // Setează alb pentru a preveni interferența cu culorile
+  backgroundColor: '#fff', // Fundal în light mode
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: false,
+};
 
-  // Check if dark mode is enabled (if previously set in localStorage)
-  if (localStorage.getItem('darkMode') === 'enabled') {
-    enableDarkMode();
-  }
-
-  // Event listener for toggle
-  darkModeToggle.addEventListener('change', () => {
-    if (darkModeToggle.checked) {
-      enableDarkMode();
-    } else {
-      disableDarkMode();
-    }
-  });
-
-  // Enable dark mode
-  function enableDarkMode() {
-    body.classList.add('dark-mode');
-    localStorage.setItem('darkMode', 'enabled'); // Save user preference
-  }
-
-  // Disable dark mode
-  function disableDarkMode() {
-    body.classList.remove('dark-mode');
-    localStorage.setItem('darkMode', 'disabled'); // Save user preference
-  }
-});
-
+const darkmode = new Darkmode(options);
+darkmode.showWidget();
 
 // document.getElementById('logout-btn').addEventListener('click', () => {
 //   signOut(auth)
