@@ -20,7 +20,7 @@ const auth = getAuth(app);
 // Verifică dacă utilizatorul este autentificat
 onAuthStateChanged(auth, user => {
   if (!user) {
-    window.location.href = '/echipa-2/page-3.html'; // Redirecționare la login dacă nu ești autentificat
+    window.location.href = 'echipa-2/page-3.html'; // Redirecționare la login dacă nu ești autentificat
   }
 });
 
@@ -28,7 +28,7 @@ onAuthStateChanged(auth, user => {
 document.getElementById('logout-btn').addEventListener('click', () => {
   signOut(auth)
     .then(() => {
-      window.location.href = '/echipa-2/page-3.html'; // Redirecționare la pagina de logare
+      window.location.href = 'echipa-2/page-3.html'; // Redirecționare la pagina de logare
     })
     .catch(error => {
       console.error('Eroare la deconectare:', error);
