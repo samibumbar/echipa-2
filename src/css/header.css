@@ -125,7 +125,7 @@
   stroke: var(--white);
 }
 #movie-grid {
-  margin: 0 auto;
+  margin: 30px 0 auto;
   display: flex;
   flex-wrap: wrap;
   max-width: 1280px;
@@ -133,9 +133,17 @@
   justify-content: center;
 }
 .movie-card {
-  width: 394px;
+  max-width: 395px;
 }
-.movie-card h3,
+.movie-card h3{
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+
+
+}
 .movie-card p {
   font-family: roboto;
   padding-bottom: 5px;
@@ -144,6 +152,8 @@
   text-transform: uppercase;
   font-size: 12px;
   line-height: 16px;
+  color: #B92F2C;
+
 }
 
 /* Tablet styling */
