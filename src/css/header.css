@@ -1,4 +1,5 @@
 .header-section {
+  background-color: white;
   max-width: 1280px;
   min-height: 316px;
   margin: 0 auto;
@@ -14,11 +15,15 @@
   background-image: url('/images/desktop/background-red-1x.jpg');
   /* background: linear-gradient(273.67deg, rgba(0, 0, 0, 0.49) -2.09%, rgba(0, 0, 0, 0) 99.83%); */
   background-size: cover;
-  /* background-position: center; */
+  background-position: center;
   margin: 32px;
   transition: background-image 1s ease-in-out;
+  isolation: isolate;
 }
 
+.darkmode--activated header {
+  background-color: #000;
+}
 /* @media (min-device-pixel-ratio: 2),
   (min-resolution: 192dpi),
   (min-resolution: 2dppx) {
@@ -145,17 +150,33 @@
   stroke: var(--white);
 }
 #movie-grid {
-  margin: 0 auto;
+  margin: 30px 0 auto;
   display: flex;
   flex-wrap: wrap;
   max-width: 1280px;
-  gap: 17px;
+  gap: 25px;
   justify-content: center;
 }
-.movie-card {
-  width: 394px;
+
+header {
+  background-blend-mode: normal !important; /* Previne amestecul dintre imagine și fundal */
 }
-.movie-card h3,
+
+.darkmode--activated header {
+  background-color: transparent !important; /* Asigură transparență pentru a nu schimba aspectul imaginii */
+}
+
+
+/* .movie-card {
+  max-width: 395px;
+}
+.movie-card h3{
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+}
 .movie-card p {
   font-family: roboto;
   padding-bottom: 5px;
@@ -164,7 +185,9 @@
   text-transform: uppercase;
   font-size: 12px;
   line-height: 16px;
-}
+  color: #B92F2C;
+
+} */
 
 /* Tablet styling */
 /* @media screen and (min-width: 768px) and (max-width: 1024px) {
