@@ -1,7 +1,7 @@
 // 'use strict';
 import { initializeApp } from 'firebase/app';
 import { getAuth, signOut, onAuthStateChanged } from 'firebase/auth';
-import Darkmode from 'darkmode-js';
+
 
 // Configurația Firebase
 const firebaseConfig = {
@@ -35,6 +35,7 @@ document.getElementById('logout-btn').addEventListener('click', () => {
     });
 });
 
+// const backgroundImages = {
 document.addEventListener('click', function (e) {
   if (e.target && e.target.id === 'logout-btn') {
     signOut(auth)
@@ -48,21 +49,38 @@ document.addEventListener('click', function (e) {
 });
 
 const options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: '#fff', // Setează alb pentru a preveni interferența cu culorile
-  backgroundColor: '#fff', // Fundal în light mode
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: false,
+  bottom: '64px', // default: '32px'
+  right: 'unset', // default: '32px'
+  left: '32px', // default: 'unset'
+  time: '0.5s', // default: '0.3s'
+  mixColor: '#fff', // default: '#fff'
+  backgroundColor: '#fff', // default: '#fff'
+  buttonColorDark: '#100f2c', // default: '#100f2c'
+  buttonColorLight: '#fff', // default: '#fff'
+  saveInCookies: true, // default: true,
+  label: '🌓', // default: ''
+  autoMatchOsTheme: true, // default: true
 };
 
 const darkmode = new Darkmode(options);
 darkmode.showWidget();
+
+function saveDarkModePreference(isDarkMode) {
+  localStorage.setItem('darkmode', isDarkMode ? 'enabled' : 'disabled');
+}
+
+document
+  .querySelector('.darkmode-toggle')
+  .addEventListener('click', function () {
+    const isDarkMode = darkmode.isActivated();
+    saveDarkModePreference(isDarkMode);
+  });
+
+// Aplică tema pe baza valorii din localStorage la fiecare încărcare de pagină
+if (localStorage.getItem('darkmode') === 'enabled') {
+  const darkmode = new Darkmode();
+  darkmode.toggle(); 
+}
 const backgroundImages = {
   desktop: [
     '/images/desktop/background-red-1x.jpg',
