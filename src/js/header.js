@@ -1,7 +1,7 @@
 // 'use strict';
 import { initializeApp } from 'firebase/app';
 import { getAuth, signOut, onAuthStateChanged } from 'firebase/auth';
-import Darkmode from 'darkmode-js';
+
 
 // Configurația Firebase
 const firebaseConfig = {
