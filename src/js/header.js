@@ -30,7 +30,7 @@ onAuthStateChanged(auth, user => {
   document.getElementById('logout-btn').addEventListener('click', () => {
   signOut(auth)
     .then(() => {
-      window.location.href = '/echipa-2/page-3.html'; // Redirecționare la pagina de logare
+      window.location.href = '/page-3.html'; // Redirecționare la pagina de logare
     })
     .catch(error => {
       console.error('Eroare la deconectare:', error);
