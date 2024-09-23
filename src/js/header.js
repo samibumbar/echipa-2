@@ -25,15 +25,59 @@ onAuthStateChanged(auth, user => {
 });
 
 // Deconectare utilizator
-document.getElementById('logout-btn').addEventListener('click', () => {
-  signOut(auth)
-    .then(() => {
-      window.location.href = '/login.html'; // Redirecționare la pagina de logare
-    })
-    .catch(error => {
-      console.error('Eroare la deconectare:', error);
-    });
+document.addEventListener('click', function (e) {
+  if(e.target && e.target.id === 'logout-btn') {
+    signOut(auth)
+      .then(() => {
+        window.location.href = '/login.html'; // Redirecționare la pagina de logare
+      })
+      .catch(error => {
+        console.error('Eroare la deconectare:', error);
+      });
+  }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const darkModeToggle = document.getElementById('darkmode-toogle');
+  const body = document.body;
+
+  // Check if dark mode is enabled (if previously set in localStorage)
+  if (localStorage.getItem('darkMode') === 'enabled') {
+    enableDarkMode();
+  }
+
+  // Event listener for toggle
+  darkModeToggle.addEventListener('change', () => {
+    if (darkModeToggle.checked) {
+      enableDarkMode();
+    } else {
+      disableDarkMode();
+    }
+  });
+
+  // Enable dark mode
+  function enableDarkMode() {
+    body.classList.add('dark-mode');
+    localStorage.setItem('darkMode', 'enabled'); // Save user preference
+  }
+
+  // Disable dark mode
+  function disableDarkMode() {
+    body.classList.remove('dark-mode');
+    localStorage.setItem('darkMode', 'disabled'); // Save user preference
+  }
+});
+
+
+// document.getElementById('logout-btn').addEventListener('click', () => {
+//   signOut(auth)
+//     .then(() => {
+//       window.location.href = '/login.html'; // Redirecționare la pagina de logare
+//     })
+//     .catch(error => {
+//       console.error('Eroare la deconectare:', error);
+//     });
+// });
 // const backgroundImages = {
 //   desktop: [
 //     '/echipa-2/images/desktop/background-red-1x.jpg',
