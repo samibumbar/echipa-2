@@ -92,11 +92,11 @@
 
 .pagination {
   padding: 16px;
-  max-width: 374px;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  max-width: 374px;
+  flex-wrap: nowrap;
+  max-width: 450px;
+  scale: 120%;
 }
 
 #pagination {
@@ -184,5 +184,8 @@
     width: 100%;
     height: 443px;
   }
-
+  #pagination {
+    flex-wrap: wrap;
+    scale: 90%;
+  }
 }
