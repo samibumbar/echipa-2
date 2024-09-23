@@ -5,4 +5,4 @@ import{i as B,g as C,o as D,b as T,S as g}from"./vendor-BNe1RqNb.js";const $={ap
         <h3 class="movie-title">${n.title}</h3>
         <p class='movie-description'>${n.movieGenre} | ${n.release_date}</p>
       `,l.addEventListener("click",()=>{x(n.posterUrl,n.title,n.movieGenre,n.description,null,null,null,null,p,c,l)}),m.appendChild(l)})}});export{x as o};
-//# sourceMappingURL=watched-queue-BJht4WcZ.js.map
+//# sourceMappingURL=watched-queue-DGIs0-qQ.js.map
