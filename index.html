@@ -8,9 +8,9 @@
 
     <script type="module" crossorigin src="/echipa-2/index.js"></script>
     <link rel="modulepreload" crossorigin href="/echipa-2/assets/modulepreload-polyfill-B5Qt9EMX.js">
-    <link rel="modulepreload" crossorigin href="/echipa-2/assets/vendor-BNe1RqNb.js">
-    <link rel="modulepreload" crossorigin href="/echipa-2/assets/modal-team-kUNBg0Sd.js">
-    <link rel="stylesheet" crossorigin href="/echipa-2/assets/modal-team-DersS84o.css">
+    <link rel="modulepreload" crossorigin href="/echipa-2/assets/vendor-DwzPqAEj.js">
+    <link rel="modulepreload" crossorigin href="/echipa-2/assets/darkmode-Cn7GwMx_.js">
+    <link rel="stylesheet" crossorigin href="/echipa-2/assets/darkmode-D3XKOgMV.css">
   </head>
 
   <body>
@@ -21,32 +21,32 @@
   <section class="header-section">
     <div class="header-container">
       <div class="header-navigation">
-        <form class="search-form" id="search-form">
-          <input
-            class="search-form__input"
-            type="text"
-            name="searchQuery"
-            autocomplete="off"
-            placeholder="Movie search"
-            id="search-input"
-          />
+        <div class="header-nav-wrapper">
+          <form class="search-form" id="search-form">
+            <input class="search-form__input" type="text" name="searchQuery" autocomplete="off"
+              placeholder="Movie search" id="search-input" />
 
-          <button class="search-form__button" type="submit" id="search-button">
-            &#128269;
-          </button>
-        </form>
-        <nav class="header-nav">
-          <ul class="header-nav__list">
-            <li>
-              <a href="index.html" class="active">HOME</a>
-            </li>
-            <li>
-              <a href="/page-2.html">MY LIBRARY</a>
+            <button class="search-form__button" type="submit" id="search-button">
+              &#128269;
+            </button>
+          </form>
+          <nav class="header-nav">
+            <ul class="header-nav__list">
+              <li>
+                <a href="index.html" class="active">HOME</a>
+              </li>
+              <li>
+                <a href="/page-2.html">MY LIBRARY</a>
+                <!-- <button type="button">MY LIBRARY</button> -->
+              </li>
 
-              <!-- <button type="button">MY LIBRARY</button> -->
-            </li>
-          </ul>
-        </nav>
+            </ul>
+          </nav>
+        </div>
+        <button id="theme-toggle" class="theme-toggle">
+          <span class="sun-icon">☀️</span>
+          <span class="moon-icon">🌙</span>
+        </button>
       </div>
       <div id="error-message" class="error-message"></div>
 
@@ -54,14 +54,14 @@
         Loading...Please Wait!
       </div>
       <div class="logo-container">
-        <div class="logo-container__item">
+        <a href="#home" class="logo-container__item">
           <svg class="header_logo__icon">
             <!--           <use href="/images/symbol-defs.svg#icon-sigla_descktop" /> -->
 
             <use href="/echipa-2/images/symbol-defs.svg#icon-sigla_descktop" />
           </svg>
           <span class="logo-text">Filmoteka</span>
-        </div>
+        </a>
         <button class="logout-btn" id="logout-btn">Log-out</button>
       </div>
     </div>
@@ -73,7 +73,6 @@
 </header>
 <div class="movie-grid" id="movie-grid"></div>
 <!-- <script type="module" src="../js/header.js"></script> -->
-
 
       <section class="default-display-section">
   <link rel="stylesheet" href="../css/modal-movie.css" />
