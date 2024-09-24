@@ -2,8 +2,10 @@
 
 .modal {
   position: fixed;
-  top: 10%;
-  left: 30%;
+  top: 50%;
+
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: white;
   width: 806px;
   height: 558px;
@@ -22,12 +24,12 @@
 
 .movies-container {
   margin-top: 300px;
-  display: flex;           
-  flex-wrap: wrap;         
-  justify-content: center; 
-  gap: 20px;               
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
   width: 100%;
-  margin: 20px auto;         
+  margin: 20px auto;
 }
 
 .movie-poster {
@@ -42,7 +44,6 @@
   border-radius: 5px;
 }
 
-
 #modal-trailer {
   max-width: 375px;
   height: 478px;
@@ -54,7 +55,7 @@
   font-weight: 500;
   line-height: 16px;
   text-align: left;
-  color: #8C8C8C;
+  color: #8c8c8c;
 }
 
 .is-hidden {
@@ -103,4 +104,31 @@
   color: white;
   background-color: #b92f2c;
   border: none;
+}
+@media screen and (max-width: 767px) {
+  .modal {
+    width: 80%;
+    min-height: 80%;
+    top: 50%;
+    border-radius: 20px;
+
+    box-shadow: 0 0 15px 8px rgb(43, 24, 1);
+    margin-left: -10px;
+  }
+  .modal-contend__wrapper {
+    flex-direction: column;
+  }
+  .wrapper-item {
+    margin: 0 auto;
+    padding-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .wrapper-item iframe {
+    margin: 0;
+  }
+  /* .wrapper-item-2 {
+    align-items: center;
+  } */
 }
