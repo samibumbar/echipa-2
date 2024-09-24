@@ -31,9 +31,9 @@ const backgroundImages = {
     '/echipa-2/images/desktop/background-yellow-1x.jpg',
   ],
   tablet: [
-    '/echipa-2/images/tablet/background-red-1x.jpg',
-    '/echipa-2/images/tablet/background-orange-1x.jpg',
-    '/echipa-2/images/tablet/background-yellow-1x.jpg',
+    '/echipa-2/images/desktop/background-red-1x.jpg',
+    '/echipa-2/images/desktop/background-orange-1x.jpg',
+    '/echipa-2/images/desktop/background-yellow-1x.jpg',
   ],
   mobile: [
     '/echipa-2/images/mobile/bgd-mobil-red-1x.jpg',
