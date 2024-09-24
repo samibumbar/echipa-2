@@ -11,7 +11,6 @@
   max-width: 1216px;
   width: 100%;
   margin: 0 auto;
-  min-width: 768px;
 }
 
 .hidden {
@@ -31,7 +30,8 @@
   max-width: 394px;
   width: 100%;
   height: 634px;
-  transition: transform 0.3s ease;
+
+   transition: transform 0.3s ease;
 }
 
 .gallery-card-modal:hover {
@@ -140,6 +140,8 @@
 
 @media screen and (max-width: 1280px) {
 
+
+
   .galleryContainer_image{
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   transform: scale(1);
@@ -152,9 +154,9 @@
   transform: scale(1.05);
   box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
 }
+
   .default-display-section {
     max-width: 704px;
-    
   }
   
   .default-display_gallery {
