@@ -95,7 +95,7 @@
   border-radius: 100px;
   border-style: none;
   display: flex;
-  transition: background-color 0.5s, color 0.5s; 
+  transition: background-color 0.5s, color 0.5s;
   cursor: pointer;
 }
 
@@ -114,7 +114,7 @@
   border-radius: 100px;
   border-style: hidden;
   display: flex;
-  transition: background-color 0.5s, color 0.5s; 
+  transition: background-color 0.5s, color 0.5s;
   cursor: pointer;
 }
 
@@ -122,14 +122,14 @@
 .queue:hover {
   background-color: var(--white);
   color: var(--red-color);
-  transition: background-color 0.5s, color 0.5s; 
+  transition: background-color 0.5s, color 0.5s;
 }
 
 .watched.active,
 .queue.active {
   background-color: var(--white);
   color: var(--red-color);
-  transition: background-color 0.5s, color 0.5s; 
+  transition: background-color 0.5s, color 0.5s;
 }
 .watched:focus,
 .queue:focus {
@@ -138,9 +138,8 @@
 }
 
 .logo-container {
-
-   display: flex;
-  justify-content:flex-start;
+  display: flex;
+  justify-content: flex-start;
   margin-left: 32px;
   margin-bottom: 32px;
 }
@@ -159,8 +158,6 @@
   fill: var(--white);
   stroke: var(--white);
 }
-
-
 
 /* Tablet styling */
 /* @media screen and (min-width: 767px) and (max-width: 1024px) {
