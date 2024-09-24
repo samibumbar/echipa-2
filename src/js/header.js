@@ -1,11 +1,5 @@
 import { initializeApp } from 'firebase/app';
-
-
-
-
 import { getAuth } from 'firebase/auth';
-
-
 const firebaseConfig = {
   apiKey: 'AIzaSyCw7VkecxwaMQ6UI5ymBFqf54FHRi8_Fkc',
   authDomain: 'filmoteka-ef771.firebaseapp.com',
@@ -20,7 +14,6 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 import { signOut } from 'firebase/auth';
 
-// Funcție pentru deconectarea utilizatorilor
 document.getElementById('logout-btn').addEventListener('click', () => {
   signOut(auth)
     .then(() => {
@@ -33,19 +26,19 @@ document.getElementById('logout-btn').addEventListener('click', () => {
 
 const backgroundImages = {
   desktop: [
-    '/echipa-2/images/desktop/background-red-1x.jpg',
-    '/echipa-2/images/desktop/background-orange-1x.jpg',
-    '/echipa-2/images/desktop/background-yellow-1x.jpg',
+    'echipa-2/images/desktop/background-red-1x.jpg',
+    'echipa-2/images/desktop/background-orange-1x.jpg',
+    'echipa-2/images/desktop/background-yellow-1x.jpg',
   ],
   tablet: [
-    '/echipa-2/images/tablet/background-red-1x.jpg',
-    '/echipa-2/images/tablet/background-orange-1x.jpg',
-    '/echipa-2/images/tablet/background-yellow-1x.jpg',
+    'echipa-2/images/tablet/background-red-1x.jpg',
+    'echipa-2/images/tablet/background-orange-1x.jpg',
+    'echipa-2/images/tablet/background-yellow-1x.jpg',
   ],
   mobile: [
-    '/echipa-2/images/mobile/bgd-mobil-red-1x.jpg',
-    '/echipa-2/images/mobile/bgd-mobil-orange-1x.jpg',
-    '/echipa-2/images/mobile/bgd-mobil-yellow-1x.jpg',
+    'echipa-2/images/mobile/bgd-mobil-red-1x.jpg',
+    'echipa-2/images/mobile/bgd-mobil-orange-1x.jpg',
+    'echipa-2/images/mobile/bgd-mobil-yellow-1x.jpg',
   ],
 };
 let currentBackgroundIndex = 0;
