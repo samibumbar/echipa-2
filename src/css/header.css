@@ -21,18 +21,17 @@
   isolation: isolate;
 }
 
-
 .darkmode-toggle {
   z-index: 9999;
 }
 
-/* @media (min-device-pixel-ratio: 2),
+@media (min-device-pixel-ratio: 2),
   (min-resolution: 192dpi),
   (min-resolution: 2dppx) {
   .header-container {
     background-image: url('/images/desktop/background-red-2x.jpg');
   }
-} */
+}
 .header-navigation {
   display: flex;
   flex-wrap: wrap;
@@ -164,14 +163,14 @@
   gap: 25px;
   justify-content: center;
 }
-
+/* 
 header {
-  background-blend-mode: normal !important; /* Previne amestecul dintre imagine și fundal */
+  background-blend-mode: normal !important; /
 }
 
 .darkmode--activated header {
-  background-color: transparent !important; /* Asigură transparență pentru a nu schimba aspectul imaginii */
-}
+  background-color: transparent !important; 
+} */
 /* .movie-card {
   max-width: 395px;
 }
@@ -222,11 +221,11 @@ header {
 /* Tablet styling */
 /* @media screen and (min-width: 768px) and (max-width: 1024px) {
 /* @media screen and (min-width: 480px) and (max-width: 767px) { */
-  /* .header-container {
+/* .header-container {
     min-height: 222px;
     background-image: url('/images/desktop/background-red-1x.jpg');
   } */
-  /* #movie-grid {
+/* #movie-grid {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -250,7 +249,7 @@ header {
     }
   } */
 
-  /* .header-navigation {
+/* .header-navigation {
     margin-left: 16px;
   }
 
@@ -294,13 +293,13 @@ header {
     justify-content: space-between;
   }
 
-  /*   @media (min-device-pixel-ratio: 2),
+  @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
     .header-container {
       background-image: url('/images/mobile/bgd-mobil-red-2x.jpg');
     }
-  } */
+  }
   .header-navigation {
     flex-wrap: wrap-reverse;
     margin-top: 14px;
@@ -310,6 +309,7 @@ header {
   #movie-grid {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 0;
   }
   .header-nav__list {
