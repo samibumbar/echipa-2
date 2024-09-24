@@ -82,7 +82,6 @@
   align-items: center;
   gap: 6px;
 }
-
 .watched {
   background-color: var(--red-color);
   color: var(--white);
@@ -96,6 +95,8 @@
   border-radius: 100px;
   border-style: none;
   display: flex;
+  transition: background-color 0.5s, color 0.5s;
+  cursor: pointer;
 }
 
 .queue {
@@ -113,18 +114,32 @@
   border-radius: 100px;
   border-style: hidden;
   display: flex;
+  transition: background-color 0.5s, color 0.5s;
+  cursor: pointer;
 }
 
 .watched:hover,
 .queue:hover {
   background-color: var(--white);
   color: var(--red-color);
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.watched.active,
+.queue.active {
+  background-color: var(--white);
+  color: var(--red-color);
+  transition: background-color 0.5s, color 0.5s;
+}
+.watched:focus,
+.queue:focus {
+  background-color: var(--white);
+  color: var(--red-color);
 }
 
 .logo-container {
-
-   display: flex;
-  justify-content:flex-start;
+  display: flex;
+  justify-content: flex-start;
   margin-left: 32px;
   margin-bottom: 32px;
 }

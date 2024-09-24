@@ -12,7 +12,7 @@
   max-width: 1216px;
   min-height: 316px;
   border-radius: 15px;
-  background-image: url('/images/desktop/background-red-1x.jpg');
+  /* background-image: url('/images/desktop/background-red-1x.jpg'); */
   /* background: linear-gradient(273.67deg, rgba(0, 0, 0, 0.49) -2.09%, rgba(0, 0, 0, 0) 99.83%); */
   background-size: cover;
   background-position: center;
@@ -21,19 +21,77 @@
   isolation: isolate;
 }
 
+/* Stiluri de bază */
+.theme-toggle {
+  max-width: 50px;
+  height: 25px;
+  background: linear-gradient(135deg, #ffcc00, #ff6600);
+  border: none;
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  margin-right: 30px;
+}
+
+/* Efect hover */
+.theme-toggle:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Animație la click */
+.theme-toggle:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Stilizare iconițe */
+.theme-toggle .sun-icon, .theme-toggle .moon-icon {
+  font-size: 12px;
+  transition: opacity 0.3s ease;
+}
+
+/* Starea inițială - modul luminos */
+.moon-icon {
+  opacity: 0;
+}
+
+/* Starea după activare - modul întunecat */
+body.dark-mode .theme-toggle {
+  background: linear-gradient(135deg, #333, #666);
+}
+
+body.dark-mode .sun-icon {
+  opacity: 0;
+}
+
+body.dark-mode .moon-icon {
+  opacity: 1;
+}
+
+/* Tranziție ușoară pentru întreaga pagină */
+body {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
 
 .darkmode-toggle {
   z-index: 9999;
 }
 
-/* @media (min-device-pixel-ratio: 2),
+@media (min-device-pixel-ratio: 2),
   (min-resolution: 192dpi),
   (min-resolution: 2dppx) {
   .header-container {
     background-image: url('/images/desktop/background-red-2x.jpg');
   }
-} */
-
+}
 .header-navigation {
   display: flex;
   flex-wrap: wrap;
@@ -51,23 +109,36 @@
   justify-content: space-between;
   color: var(--black);
   padding: 14px 24px 14px 24px;
+  position: relative;
+
   /* order: 1; */
 }
 
+.logo-container__item {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .search-form__input {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 400;
   line-height: 1.2;
   text-align: left;
-  border-width: 0;
-  border-color: var(--white);
+  border: none;
+  outline: none;
   color: var(--black);
+  width: 150px;
 }
 
 .search-form__button {
   border-width: 0;
   background-color: var(--white);
   cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 10px;
 }
 
 .header-nav__list {
@@ -95,6 +166,16 @@
   /* gap: 10px; */
   /* margin-top: 16px; */
   cursor: pointer;
+}
+
+.header-navigation {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-nav-wrapper {
+  display: flex;
+  gap: 10px;
 }
 
 .header-nav__list .active {
@@ -152,7 +233,7 @@
   stroke: var(--white);
 }
 #movie-grid {
-  margin: 30px 0 auto;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   max-width: 1280px;
@@ -160,6 +241,16 @@
   justify-content: center;
 }
 
+
+
+/* 
+header {
+  background-blend-mode: normal !important; /
+}
+
+.darkmode--activated header {
+  background-color: transparent !important; 
+} */
 /* .movie-card {
   max-width: 395px;
 }
@@ -181,24 +272,54 @@
   color: #B92F2C;
 
 } */
+/* Stilul de bază pentru loader */
+.loading-header {
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  margin-left: 40px;
+
+  animation: pulse 1.5s infinite ease-in-out; /* Animație infinită */
+}
+
+/* Definirea animației pentru loader */
+@keyframes pulse {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 
 /* Tablet styling */
 /* @media screen and (min-width: 768px) and (max-width: 1024px) {
 /* @media screen and (min-width: 480px) and (max-width: 767px) { */
-  /* .header-container {
+/* .header-container {
     min-height: 222px;
     background-image: url('/images/desktop/background-red-1x.jpg');
   } */
-  /* #movie-grid {
+/* #movie-grid {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     max-width: 767px;
-    gap: 17px;
+    gap: 80px;
     justify-content: center;
+    align-items: center;
   }
   .movie-card {
     max-width: 394px;
+    margin-bottom: 40px;
+  }
+  .gallery-container_title {
+    margin-bottom: 30px;
   }
   /*   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
@@ -208,7 +329,7 @@
     }
   } */
 
-  /* .header-navigation {
+/* .header-navigation {
     margin-left: 16px;
   }
 
@@ -252,17 +373,24 @@
     justify-content: space-between;
   }
 
-  /*   @media (min-device-pixel-ratio: 2),
+  @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
     .header-container {
       background-image: url('/images/mobile/bgd-mobil-red-2x.jpg');
     }
-  } */
+  }
   .header-navigation {
     flex-wrap: wrap-reverse;
     margin-top: 14px;
     margin-left: 14px;
+  }
+
+  #movie-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
   }
   .header-nav__list {
     gap: 4px;

@@ -1,9 +1,11 @@
-// 'use strict';
 import { initializeApp } from 'firebase/app';
-import { getAuth, signOut, onAuthStateChanged } from 'firebase/auth';
 
 
-// Configurația Firebase
+
+
+import { getAuth } from 'firebase/auth';
+
+
 const firebaseConfig = {
   apiKey: 'AIzaSyCw7VkecxwaMQ6UI5ymBFqf54FHRi8_Fkc',
   authDomain: 'filmoteka-ef771.firebaseapp.com',
@@ -14,17 +16,11 @@ const firebaseConfig = {
   measurementId: 'G-13YE8DDH34',
 };
 
-// Inițializează aplicația Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+import { signOut } from 'firebase/auth';
 
-// Verifică dacă utilizatorul este autentificat
-onAuthStateChanged(auth, user => {
-  if (!user) {
-    window.location.href = 'echipa-2/page-3.html'; // Redirecționare la login dacă nu ești autentificat
-  }
-});
-
+// Funcție pentru deconectarea utilizatorilor
 document.getElementById('logout-btn').addEventListener('click', () => {
   signOut(auth)
     .then(() => {
@@ -35,112 +31,33 @@ document.getElementById('logout-btn').addEventListener('click', () => {
     });
 });
 
-
-
-// const backgroundImages = {
-
-//   desktop: [
-//     '/echipa-2/images/desktop/background-red-1x.jpg',
-//     '/echipa-2/images/desktop/background-orange-1x.jpg',
-//     '/echipa-2/images/desktop/background-yellow-1x.jpg',
-//   ],
-//   tablet: [
-//     '/echipa-2/images/tablet/background-red-1x.jpg',
-//     '/echipa-2/images/tablet/background-orange-1x.jpg',
-//     '/echipa-2/images/tablet/background-yellow-1x.jpg',
-//   ],
-//   mobile: [
-//     '/echipa-2/images/mobile/bgd-mobil-red-1x.jpg',
-//     '/echipa-2/images/mobile/bgd-mobil-orange-1x.jpg',
-//     '/echipa-2/images/mobile/bgd-mobil-yellow-1x.jpg',
-//   ],
-// };
-document.addEventListener('click', function (e) {
-  if (e.target && e.target.id === 'logout-btn') {
-    signOut(auth)
-      .then(() => {
-        window.location.href = '/login.html'; // Redirecționare la pagina de logare
-      })
-      .catch(error => {
-        console.error('Eroare la deconectare:', error);
-      });
-  }
-});
-
-const options = {
-  bottom: '64px', // default: '32px'
-  right: 'unset', // default: '32px'
-  left: '32px', // default: 'unset'
-  time: '0.5s', // default: '0.3s'
-  mixColor: '#fff', // default: '#fff'
-  backgroundColor: '#fff', // default: '#fff'
-  buttonColorDark: '#100f2c', // default: '#100f2c'
-  buttonColorLight: '#fff', // default: '#fff'
-  saveInCookies: true, // default: true,
-  label: '🌓', // default: ''
-  autoMatchOsTheme: true, // default: true
-};
-
-const darkmode = new Darkmode(options);
-darkmode.showWidget();
-
-// Funcție pentru a salva preferința temei în localStorage
-function saveDarkModePreference(isDarkMode) {
-  localStorage.setItem('darkmode', isDarkMode ? 'enabled' : 'disabled');
-}
-
-document
-  .querySelector('.darkmode-toggle')
-  .addEventListener('click', function () {
-    const isDarkMode = darkmode.isActivated();
-    saveDarkModePreference(isDarkMode);
-  });
-
-// Aplică tema pe baza valorii din localStorage la fiecare încărcare de pagină
-if (localStorage.getItem('darkmode') === 'enabled') {
-  const darkmode = new Darkmode();
-  darkmode.toggle(); 
-}
-
-
-// document.getElementById('logout-btn').addEventListener('click', () => {
-//   signOut(auth)
-//     .then(() => {
-//       window.location.href = '/login.html'; // Redirecționare la pagina de logare
-//     })
-//     .catch(error => {
-//       console.error('Eroare la deconectare:', error);
-//     });
-// });
-
 const backgroundImages = {
   desktop: [
-    './images/desktop/background-red-1x.jpg',
-    './images/desktop/background-orange-1x.jpg',
-    './images/desktop/background-yellow-1x.jpg',
+    '/echipa-2/images/desktop/background-red-1x.jpg',
+    '/echipa-2/images/desktop/background-orange-1x.jpg',
+    '/echipa-2/images/desktop/background-yellow-1x.jpg',
   ],
   tablet: [
-    './images/tablet/background-red-1x.jpg',
-    './images/tablet/background-orange-1x.jpg',
-    './images/tablet/background-yellow-1x.jpg',
+    '/echipa-2/images/tablet/background-red-1x.jpg',
+    '/echipa-2/images/tablet/background-orange-1x.jpg',
+    '/echipa-2/images/tablet/background-yellow-1x.jpg',
   ],
   mobile: [
-    './images/mobile/bgd-mobil-red-1x.jpg',
-    './images/mobile/bgd-mobil-orange-1x.jpg',
-    './images/mobile/bgd-mobil-yellow-1x.jpg',
+    '/echipa-2/images/mobile/bgd-mobil-red-1x.jpg',
+    '/echipa-2/images/mobile/bgd-mobil-orange-1x.jpg',
+    '/echipa-2/images/mobile/bgd-mobil-yellow-1x.jpg',
   ],
 };
-
 let currentBackgroundIndex = 0;
 let currentDevice = 'desktop'; // Setează implicit dispozitivul la desktop
 
 function rotateBackground() {
   const headerContainer = document.querySelector('.header-container');
 
-  // Detectarea dispozitivului (poate fi optimizată)
-  if (window.innerWidth >= 768) {
+  // Detectarea dispozitivului pe baza dimensiunii ferestrei
+  if (window.innerWidth >= 1200) {
     currentDevice = 'desktop';
-  } else if (window.innerWidth >= 480) {
+  } else if (window.innerWidth >= 768 && window.innerWidth < 1200) {
     currentDevice = 'tablet';
   } else {
     currentDevice = 'mobile';
@@ -151,14 +68,14 @@ function rotateBackground() {
     Math.random() * backgroundImages[currentDevice].length
   );
 
-  // imaginea nu se repetă imediat
+  // Evită repetarea aceleași imagini consecutiv
   while (randomIndex === currentBackgroundIndex) {
     randomIndex = Math.floor(
       Math.random() * backgroundImages[currentDevice].length
     );
   }
 
-  // Actualizează indexul curent și selectează noua imagine
+  // Actualizează indexul curent și imaginea de fundal
   currentBackgroundIndex = randomIndex;
   headerContainer.style.backgroundImage = `url('${backgroundImages[currentDevice][randomIndex]}')`;
 }

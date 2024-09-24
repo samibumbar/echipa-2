@@ -40,7 +40,6 @@ export function openModal(
     return;
   }
 
-  // Setăm conținutul în modal
   modalTitle.textContent = title;
   modalGenres.textContent = `Genres: ${movieGenre}`;
   modalDescription.textContent = description;
@@ -53,7 +52,7 @@ export function openModal(
     : 'Popularity unavailable';
 
   if (trailerUrl) {
-    modalPoster.outerHTML = `<iframe id="modal-trailer" width="100%" " src="${trailerUrl}" 
+    modalPoster.outerHTML = `<iframe id="modal-trailer" width="100%" src="${trailerUrl}" 
       frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
   } else {
     modalPoster.src = posterUrl;
@@ -61,6 +60,13 @@ export function openModal(
 
   modal.classList.remove('is-hidden');
   modal.classList.add('is-visible');
+
+  // Check if the movie is already in the watched or queue lists
+  const watchedMovies = JSON.parse(localStorage.getItem('watchedMovies')) || [];
+  const queueMovies = JSON.parse(localStorage.getItem('queueMovies')) || [];
+
+  const isWatched = watchedMovies.some(movie => movie.title === title);
+  const isQueued = queueMovies.some(movie => movie.title === title);
 
   if (isFromWatched) {
     watchedButton.textContent = 'Remove from WATCHED';
@@ -71,26 +77,6 @@ export function openModal(
         closeModal();
       });
     };
-  } else if (isFromQueue) {
-    queueButton.textContent = 'Remove from QUEUE';
-    queueButton.onclick = () => {
-      removeFromLocalStorage('queueMovies', title);
-      if (movieCardElement) movieCardElement.remove();
-      Swal.fire(`${title} has been removed from QUEUE!`).then(() => {
-        closeModal();
-      });
-    };
-  } else {
-    watchedButton.textContent = 'Add to WATCHED';
-    watchedButton.onclick = () => {
-      saveToLocalStorage('watchedMovies', {
-        title,
-        posterUrl,
-        movieGenre,
-        description,
-      });
-      Swal.fire(`${title} has been added to WATCHED!`);
-    };
 
     queueButton.textContent = 'Add to QUEUE';
     queueButton.onclick = () => {
@@ -100,11 +86,79 @@ export function openModal(
         movieGenre,
         description,
       });
+      queueButton.innerHTML = 'Remove from QUEUE'; // Update button text
       Swal.fire(`${title} has been added to QUEUE!`);
+    };
+  } else if (isFromQueue) {
+    queueButton.textContent = 'Remove from QUEUE';
+    queueButton.onclick = () => {
+      removeFromLocalStorage('queueMovies', title);
+      if (movieCardElement) movieCardElement.remove();
+      Swal.fire(`${title} has been removed from QUEUE!`).then(() => {
+        closeModal();
+      });
+    };
+
+    watchedButton.textContent = 'Add to WATCHED';
+    watchedButton.onclick = () => {
+      const added = saveToLocalStorage('watchedMovies', {
+        title,
+        posterUrl,
+        movieGenre,
+        description,
+      });
+      if (added) {
+        Swal.fire(`${title} has been added to WATCHED!`);
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Already Added!',
+          text: `${title} is already in WATCHED! ✔️`,
+        });
+      }
+    };
+  } else {
+    watchedButton.textContent = 'Add to WATCHED';
+    watchedButton.onclick = () => {
+      const added = saveToLocalStorage('watchedMovies', {
+        title,
+        posterUrl,
+        movieGenre,
+        description,
+      });
+      if (added) {
+        Swal.fire(`${title} has been added to WATCHED!`);
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Already Added!',
+          text: `${title} is already in WATCHED! ✔️`,
+        });
+      }
+    };
+
+    queueButton.textContent = 'Add to QUEUE';
+    queueButton.onclick = () => {
+      const added = saveToLocalStorage('queueMovies', {
+        title,
+        posterUrl,
+        movieGenre,
+        description,
+      });
+      if (added) {
+        Swal.fire(`${title} has been added to QUEUE!`);
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Already Added!',
+          text: `${title} is already in QUEUE! ✔️`,
+        });
+      }
     };
   }
 
   document.addEventListener('keydown', handleEscapeKey);
+  document.body.classList.add('overflow-hidden', 'modal-active');
 }
 
 export function closeModal() {
@@ -121,14 +175,22 @@ export function closeModal() {
   modal.classList.add('is-hidden');
 
   document.removeEventListener('keydown', handleEscapeKey);
+  document.body.classList.remove('overflow-hidden', 'modal-active');
 }
 
 function saveToLocalStorage(key, movie) {
   const storedMovies = JSON.parse(localStorage.getItem(key)) || [];
-  if (!storedMovies.find(storedMovie => storedMovie.title === movie.title)) {
+  const movieExists = storedMovies.find(
+    storedMovie => storedMovie.title === movie.title
+  );
+
+  if (!movieExists) {
     storedMovies.push(movie);
     localStorage.setItem(key, JSON.stringify(storedMovies));
+    return true; // Movie was added
   }
+
+  return false; // Movie already exists
 }
 
 function removeFromLocalStorage(key, movieTitle) {
