@@ -17,7 +17,7 @@ import { signOut } from 'firebase/auth';
 document.getElementById('logout-btn').addEventListener('click', () => {
   signOut(auth)
     .then(() => {
-      window.location.href = 'echipa-2/page-3.html';
+      window.location.href = '/page-3.html';
     })
     .catch(error => {
       console.error('Eroare la deconectare:', error);
