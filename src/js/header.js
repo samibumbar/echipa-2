@@ -19,7 +19,7 @@ import { signOut } from 'firebase/auth';
 document.getElementById('logout-btn').addEventListener('click', () => {
   signOut(auth)
     .then(() => {
-      window.location.href = '/page-3.html'; // Redirecționează către pagina de logare
+      window.location.href = '/echipa-2/page-3.html'; // Redirecționează către pagina de logare
     })
     .catch(error => {
       console.error('Eroare la deconectare:', error);
@@ -28,19 +28,19 @@ document.getElementById('logout-btn').addEventListener('click', () => {
 
 const backgroundImages = {
   desktop: [
-    '/images/desktop/background-red-1x.jpg',
-    '/images/desktop/background-orange-1x.jpg',
+    '/echipa-2/images/desktop/background-red-1x.jpg',
+    '/echipa-2/images/desktop/background-orange-1x.jpg',
     '/images/desktop/background-yellow-1x.jpg',
   ],
   tablet: [
-    '/images/tablet/background-red-1x.jpg',
-    '/images/tablet/background-orange-1x.jpg',
-    '/images/tablet/background-yellow-1x.jpg',
+    '/echipa-2/images/tablet/background-red-1x.jpg',
+    '/echipa-2/images/tablet/background-orange-1x.jpg',
+    '/echipa-2/images/tablet/background-yellow-1x.jpg',
   ],
   mobile: [
-    '/images/mobile/bgd-mobil-red-1x.jpg',
-    '/images/mobile/bgd-mobil-orange-1x.jpg',
-    '/images/mobile/bgd-mobil-yellow-1x.jpg',
+    '/echipa-2/images/mobile/bgd-mobil-red-1x.jpg',
+    '/echipa-2/images/mobile/bgd-mobil-orange-1x.jpg',
+    '/echipa-2/images/mobile/bgd-mobil-yellow-1x.jpg',
   ],
 };
 let currentBackgroundIndex = 0;
@@ -80,4 +80,3 @@ rotateBackground();
 
 // Interval pentru a schimba imaginea în mod regulat
 setInterval(rotateBackground, 3000); // Schimbă imaginea la fiecare 3 secunde
-
