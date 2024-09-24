@@ -62,6 +62,7 @@ export function openModal(
   modal.classList.remove('is-hidden');
   modal.classList.add('is-visible');
 
+  // Configurarea butoanelor în funcție de starea filmului
   if (isFromWatched) {
     watchedButton.textContent = 'Remove from WATCHED';
     watchedButton.onclick = () => {
@@ -71,6 +72,18 @@ export function openModal(
         closeModal();
       });
     };
+
+    // Adaugă butonul pentru a adăuga în QUEUE
+    queueButton.textContent = 'Add to QUEUE';
+    queueButton.onclick = () => {
+      saveToLocalStorage('queueMovies', {
+        title,
+        posterUrl,
+        movieGenre,
+        description,
+      });
+      Swal.fire(`${title} has been added to QUEUE!`);
+    };
   } else if (isFromQueue) {
     queueButton.textContent = 'Remove from QUEUE';
     queueButton.onclick = () => {
@@ -79,6 +92,18 @@ export function openModal(
       Swal.fire(`${title} has been removed from QUEUE!`).then(() => {
         closeModal();
       });
+    };
+
+    // Butonul pentru a adăuga în WATCHED
+    watchedButton.textContent = 'Add to WATCHED';
+    watchedButton.onclick = () => {
+      saveToLocalStorage('watchedMovies', {
+        title,
+        posterUrl,
+        movieGenre,
+        description,
+      });
+      Swal.fire(`${title} has been added to WATCHED!`);
     };
   } else {
     watchedButton.textContent = 'Add to WATCHED';
@@ -105,6 +130,7 @@ export function openModal(
   }
 
   document.addEventListener('keydown', handleEscapeKey);
+  document.body.classList.add('overflow-hidden', 'modal-active');
 }
 
 export function closeModal() {
@@ -121,6 +147,7 @@ export function closeModal() {
   modal.classList.add('is-hidden');
 
   document.removeEventListener('keydown', handleEscapeKey);
+  document.body.classList.remove('overflow-hidden', 'modal-active');
 }
 
 function saveToLocalStorage(key, movie) {

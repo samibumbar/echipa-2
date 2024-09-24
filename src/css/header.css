@@ -54,6 +54,13 @@
   /* order: 1; */
 }
 
+.logo-container__item {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .search-form__input {
   font-size: 18px;
   font-weight: 400;
@@ -162,6 +169,14 @@
   max-width: 1280px;
   gap: 25px;
   justify-content: center;
+}
+
+.darkmode-toggle {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 15px;
 }
 /* 
 header {
