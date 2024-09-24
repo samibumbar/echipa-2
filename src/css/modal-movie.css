@@ -22,6 +22,10 @@
   text-align: left;
 }
 
+#movieModal {
+  z-index: 999;
+}
+
 .movies-container {
   margin-top: 300px;
   display: flex;

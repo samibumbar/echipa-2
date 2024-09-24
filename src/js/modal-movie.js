@@ -40,7 +40,6 @@ export function openModal(
     return;
   }
 
-  // Setăm conținutul în modal
   modalTitle.textContent = title;
   modalGenres.textContent = `Genres: ${movieGenre}`;
   modalDescription.textContent = description;
@@ -53,7 +52,7 @@ export function openModal(
     : 'Popularity unavailable';
 
   if (trailerUrl) {
-    modalPoster.outerHTML = `<iframe id="modal-trailer" width="100%" " src="${trailerUrl}" 
+    modalPoster.outerHTML = `<iframe id="modal-trailer" width="100%" src="${trailerUrl}" 
       frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
   } else {
     modalPoster.src = posterUrl;
@@ -62,7 +61,13 @@ export function openModal(
   modal.classList.remove('is-hidden');
   modal.classList.add('is-visible');
 
-  // Configurarea butoanelor în funcție de starea filmului
+  // Check if the movie is already in the watched or queue lists
+  const watchedMovies = JSON.parse(localStorage.getItem('watchedMovies')) || [];
+  const queueMovies = JSON.parse(localStorage.getItem('queueMovies')) || [];
+
+  const isWatched = watchedMovies.some(movie => movie.title === title);
+  const isQueued = queueMovies.some(movie => movie.title === title);
+
   if (isFromWatched) {
     watchedButton.textContent = 'Remove from WATCHED';
     watchedButton.onclick = () => {
@@ -73,7 +78,6 @@ export function openModal(
       });
     };
 
-    // Adaugă butonul pentru a adăuga în QUEUE
     queueButton.textContent = 'Add to QUEUE';
     queueButton.onclick = () => {
       saveToLocalStorage('queueMovies', {
@@ -82,6 +86,7 @@ export function openModal(
         movieGenre,
         description,
       });
+      queueButton.innerHTML = 'Remove from QUEUE'; // Update button text
       Swal.fire(`${title} has been added to QUEUE!`);
     };
   } else if (isFromQueue) {
@@ -94,38 +99,61 @@ export function openModal(
       });
     };
 
-    // Butonul pentru a adăuga în WATCHED
     watchedButton.textContent = 'Add to WATCHED';
     watchedButton.onclick = () => {
-      saveToLocalStorage('watchedMovies', {
+      const added = saveToLocalStorage('watchedMovies', {
         title,
         posterUrl,
         movieGenre,
         description,
       });
-      Swal.fire(`${title} has been added to WATCHED!`);
+      if (added) {
+        Swal.fire(`${title} has been added to WATCHED!`);
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Already Added!',
+          text: `${title} is already in WATCHED! ✔️`,
+        });
+      }
     };
   } else {
     watchedButton.textContent = 'Add to WATCHED';
     watchedButton.onclick = () => {
-      saveToLocalStorage('watchedMovies', {
+      const added = saveToLocalStorage('watchedMovies', {
         title,
         posterUrl,
         movieGenre,
         description,
       });
-      Swal.fire(`${title} has been added to WATCHED!`);
+      if (added) {
+        Swal.fire(`${title} has been added to WATCHED!`);
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Already Added!',
+          text: `${title} is already in WATCHED! ✔️`,
+        });
+      }
     };
 
     queueButton.textContent = 'Add to QUEUE';
     queueButton.onclick = () => {
-      saveToLocalStorage('queueMovies', {
+      const added = saveToLocalStorage('queueMovies', {
         title,
         posterUrl,
         movieGenre,
         description,
       });
-      Swal.fire(`${title} has been added to QUEUE!`);
+      if (added) {
+        Swal.fire(`${title} has been added to QUEUE!`);
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Already Added!',
+          text: `${title} is already in QUEUE! ✔️`,
+        });
+      }
     };
   }
 
@@ -152,10 +180,17 @@ export function closeModal() {
 
 function saveToLocalStorage(key, movie) {
   const storedMovies = JSON.parse(localStorage.getItem(key)) || [];
-  if (!storedMovies.find(storedMovie => storedMovie.title === movie.title)) {
+  const movieExists = storedMovies.find(
+    storedMovie => storedMovie.title === movie.title
+  );
+
+  if (!movieExists) {
     storedMovies.push(movie);
     localStorage.setItem(key, JSON.stringify(storedMovies));
+    return true; // Movie was added
   }
+
+  return false; // Movie already exists
 }
 
 function removeFromLocalStorage(key, movieTitle) {

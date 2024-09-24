@@ -4,33 +4,32 @@
   <section class="header-section">
     <div class="header-container">
       <div class="header-navigation">
-        <form class="search-form" id="search-form">
-          <input
-            class="search-form__input"
-            type="text"
-            name="searchQuery"
-            autocomplete="off"
-            placeholder="Movie search"
-            id="search-input"
-          />
+        <div class="header-nav-wrapper">
+          <form class="search-form" id="search-form">
+            <input class="search-form__input" type="text" name="searchQuery" autocomplete="off"
+              placeholder="Movie search" id="search-input" />
 
-          <button class="search-form__button" type="submit" id="search-button">
-            &#128269;
-          </button>
-        </form>
-        <nav class="header-nav">
-          <ul class="header-nav__list">
-            <li>
-              <a href="index.html" class="active">HOME</a>
-            </li>
-            <li>
-              <a href="/page-2.html">MY LIBRARY</a>
-              <!-- <button type="button">MY LIBRARY</button> -->
-            </li>
-            <li id="darkmode-button-container">
-            </li>
-          </ul>
-        </nav>
+            <button class="search-form__button" type="submit" id="search-button">
+              &#128269;
+            </button>
+          </form>
+          <nav class="header-nav">
+            <ul class="header-nav__list">
+              <li>
+                <a href="index.html" class="active">HOME</a>
+              </li>
+              <li>
+                <a href="/page-2.html">MY LIBRARY</a>
+                <!-- <button type="button">MY LIBRARY</button> -->
+              </li>
+
+            </ul>
+          </nav>
+        </div>
+        <button id="theme-toggle" class="theme-toggle">
+          <span class="sun-icon">☀️</span>
+          <span class="moon-icon">🌙</span>
+        </button>
       </div>
       <div id="error-message" class="error-message"></div>
 
