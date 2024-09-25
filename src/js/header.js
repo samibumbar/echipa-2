@@ -14,7 +14,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 import { signOut } from 'firebase/auth';
 
-document.getElementById('logout-btn').addEventListener('click', () => {
+document.getElementById('logout-btn')?.addEventListener('click', () => {
   signOut(auth)
     .then(() => {
       window.location.href = '/echipa-2/page-3.html';
@@ -70,7 +70,7 @@ function rotateBackground() {
 
   // Actualizează indexul curent și imaginea de fundal
   currentBackgroundIndex = randomIndex;
-  headerContainer.style.backgroundImage = `url('${backgroundImages[currentDevice][randomIndex]}')`;
+  headerContainer.style.backgroundImage = ⁠ url('${backgroundImages[currentDevice][randomIndex]}') ⁠;
 }
 
 // Apel inițial pentru a seta imaginea de fundal

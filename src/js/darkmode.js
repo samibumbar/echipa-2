@@ -16,7 +16,7 @@ const themeToggle = document.getElementById('theme-toggle');
 
 // // Adaugă un eveniment pentru buton
 
-themeToggle.addEventListener('click', () => {
+themeToggle?.addEventListener('click', () => {
   darkmode.toggle(); // Schimbă tema
 
   // Salvează noua temă în localStorage
@@ -26,9 +26,7 @@ themeToggle.addEventListener('click', () => {
   localStorage.setItem('theme', theme);
 });
 
-
-
-document.getElementById('theme-toggle').addEventListener('click', function () {
+document.getElementById('theme-toggle')?.addEventListener('click', function () {
   document.body.classList.toggle('dark-mode');
 
   // Salvare tema în localStorage
