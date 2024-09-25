@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --base=/echipa-2/",
     "build": "vite build --base=/echipa-2/",
     "preview": "vite preview"
   },
