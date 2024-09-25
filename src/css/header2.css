@@ -125,17 +125,7 @@
   transition: background-color 0.5s, color 0.5s;
 }
 
-.watched.active,
-.queue.active {
-  background-color: var(--white);
-  color: var(--red-color);
-  transition: background-color 0.5s, color 0.5s;
-}
-.watched:focus,
-.queue:focus {
-  background-color: var(--white);
-  color: var(--red-color);
-}
+
 
 .logo-container {
   display: flex;
