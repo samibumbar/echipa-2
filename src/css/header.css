@@ -297,69 +297,7 @@ header {
   }
 }
 
-/* Tablet styling */
-/* @media screen and (min-width: 768px) and (max-width: 1024px) {
-/* @media screen and (min-width: 480px) and (max-width: 767px) { */
-/* .header-container {
-    min-height: 222px;
-    background-image: url('/images/desktop/background-red-1x.jpg');
-  } */
-/* #movie-grid {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    max-width: 767px;
-    gap: 80px;
-    justify-content: center;
-    align-items: center;
-  }
-  .movie-card {
-    max-width: 394px;
-    margin-bottom: 40px;
-  }
-  .gallery-container_title {
-    margin-bottom: 30px;
-  }
-  /*   @media (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    .header-container {
-      background-image: url('/images/desktop/background-red-2x.jpg');
-    }
-  } */
 
-/* .header-navigation {
-    margin-left: 16px;
-  }
-
-  .header-nav__list {
-    gap: 4px;
-  }
-
-  .header-nav__list a {
-    height: 38px;
-    padding: 12px 20px 12px 20px;
-  }
-
-  #search-form {
-    height: 38px;
-    padding: 10px 16px;
-  }
-
-  .logo-container {
-    gap: 7px;
-    margin-left: 16px;
-    margin-bottom: 16px;
-  }
-
-  .logo-text {
-    font-size: 40px;
-  }
-  .header_logo__icon {
-    width: 40px;
-    height: 40px;
-  }
-}  */
 
 /* Mobil styling */
 @media screen and (max-width: 767px) {
@@ -370,6 +308,12 @@ header {
 
     flex-direction: column;
     justify-content: space-between;
+  }
+  .header-nav-wrapper{
+    display: flex;
+    flex-direction: column;
+    
+
   }
 
   @media (min-device-pixel-ratio: 2),
