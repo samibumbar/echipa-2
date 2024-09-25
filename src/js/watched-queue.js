@@ -1,4 +1,4 @@
-import { openModal } from '/modal-movie.js';
+import { openModal } from './modal-movie.js';
 import Swal from 'sweetalert2';
 
 document.addEventListener('DOMContentLoaded', () => {
