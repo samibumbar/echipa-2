@@ -2,9 +2,11 @@ import { openModal } from './modal-movie.js';
 import Swal from 'sweetalert2';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const watchedSectionButton = document.querySelector('.watched');
-  const queueSectionButton = document.querySelector('.queue');
+  const watchedSectionButton = document.getElementById('watched');
+  const queueSectionButton = document.getElementById('queue');
   const movieGrid = document.getElementById('movie-grid');
+  console.log(watchedSectionButton);
+  console.log(queueSectionButton);
 
   const WATCHED_KEY = 'watchedMovies';
   const QUEUE_KEY = 'queueMovies';

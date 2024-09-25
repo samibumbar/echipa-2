@@ -26,6 +26,7 @@ body {
 }
 #password-input,
 #email-input {
+  margin-left: -20px;
   color: black;
   background-color: whitesmoke;
 }
