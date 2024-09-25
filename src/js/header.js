@@ -70,7 +70,7 @@ function rotateBackground() {
 
   // Actualizează indexul curent și imaginea de fundal
   currentBackgroundIndex = randomIndex;
-  headerContainer.style.backgroundImage = ⁠ url('${backgroundImages[currentDevice][randomIndex]}') ⁠;
+  headerContainer.style.backgroundImage = `url('${backgroundImages[currentDevice][randomIndex]}')`;
 }
 
 // Apel inițial pentru a seta imaginea de fundal
