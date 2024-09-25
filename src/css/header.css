@@ -53,7 +53,8 @@
 }
 
 /* Stilizare iconițe */
-.theme-toggle .sun-icon, .theme-toggle .moon-icon {
+.theme-toggle .sun-icon,
+.theme-toggle .moon-icon {
   font-size: 12px;
   transition: opacity 0.3s ease;
 }
@@ -241,8 +242,6 @@ body {
   justify-content: center;
 }
 
-
-
 /* 
 header {
   background-blend-mode: normal !important; /
@@ -399,7 +398,9 @@ header {
     height: 34px;
     padding: 8px 18px 8px 18px;
   }
-
+  .logout-btn {
+    margin-right: 15px;
+  }
   #search-form {
     max-width: 252px;
     width: 95%;
