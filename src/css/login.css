@@ -112,6 +112,7 @@ form * {
   background-color: #0b5c9b;
   border-radius: 50px;
   cursor: pointer;
+  color:white;
 }
 
 /* Style pentru loader */
